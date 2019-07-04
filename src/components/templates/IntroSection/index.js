@@ -1,11 +1,12 @@
 import React from 'react'
+import Button from '../../atoms/Button'
+import Layout from '../../atoms/Layout'
 import avatar from '../../../assets/images/avatar.svg'
 import './styles.scss'
-import Button from '../../atoms/Button';
 
 const IntroSection = () => {
   return (
-    <section className="IntroSection">
+    <Layout innerClassName="IntroSection">
       <div className="IntroSection__Headline">
         <h1 className="IntroSection__Title">Fabian Lee</h1>
         <p className="IntroSection__Subtitle">Software Engineer based in Hong Kong with focus on Front-end Dev and Human-centered Design.</p>
@@ -14,8 +15,8 @@ const IntroSection = () => {
           <Button fill>View Resume</Button>
         </div>
       </div>
-      <img className="IntroSection__Avatar" src={avatar} />
-    </section>
+      <img className="IntroSection__Avatar" src={avatar} alt="fabian-avatar"/>
+    </Layout>
   )
 }
 

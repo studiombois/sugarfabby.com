@@ -2,8 +2,13 @@
   display: flex;
   justify-content: space-between;
   max-width: 1440px;
-  margin: 20px auto;
-  padding: 0 20px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.Navbar__Logo {
+  width: 60px;
+  height: 100%;
 }
 
 .Navbar__NavItems {
