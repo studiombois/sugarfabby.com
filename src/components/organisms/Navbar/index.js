@@ -6,7 +6,7 @@ import './styles.scss'
 const Navbar = () => {
   return (
     <nav className="Navbar">
-      <img src={logo} alt="fabian-logo" style={{ width: '60px' }}/>
+      <img className="Navbar__Logo" src={logo} alt="fabian-logo" />
       <ul className="Navbar__NavItems">
         <li className="Navbar__NavItem">Projects</li>
         <li className="Navbar__NavItem">About Me</li>
