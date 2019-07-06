@@ -1,14 +1,25 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import Button from '../../atoms/Button'
 import Layout from '../../atoms/Layout'
 import avatar from '../../../assets/images/avatar.svg'
 import './styles.scss'
 
 const IntroSection = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          author
+        }
+      }
+    }
+  `)
+
   return (
     <Layout innerClassName="IntroSection">
       <div className="IntroSection__Headline">
-        <h1 className="IntroSection__Title">Fabian Lee</h1>
+        <h1 className="IntroSection__Title">{data.site.siteMetadata.author}</h1>
         <p className="IntroSection__Subtitle">Software Engineer based in Hong Kong with focus on Front-end Dev and Human-centered Design.</p>
         <div className="IntroSection__Buttons">
           <Button>View Projects</Button>
