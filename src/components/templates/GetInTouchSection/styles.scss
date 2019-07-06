@@ -1,0 +1,38 @@
+.GetInTouchSection {
+  background: var(--color-primary);
+}
+
+.GetInTouchSection__Wrapper {
+  max-width: 768px;
+}
+
+.GetInTouchSection__Title, .GetInTouchSection__Text {
+  color: var(--color-light);
+}
+
+.GetInTouchSection__Text {
+  margin: 20px 0 30px;
+}
+
+.GetInTouchSection__Email {
+  text-decoration: underline;
+}
+
+.GetInTouchSection__SocialMediaButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > :not(:last-child) {
+    margin-right: 20px;
+  }
+}
+
+.GetInTouchSection__SocialMediaButton {
+  width: 45px;
+  height: 45px;
+  display: block;
+  filter: invert(1);
+}
+
+
+
