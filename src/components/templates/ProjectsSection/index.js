@@ -17,7 +17,7 @@ const ProjectsSection = () => {
       <div className="ProjectsSection__Projects">
         {projects.map((project, index) => (
           <div key={index} className="ProjectsSection__Project">
-            <img src={dummy} style={{ width: '100%' }} />
+            <img src={dummy} alt={project.title} style={{ width: '100%' }} />
             <div className="ProjectsSection__Content">
               <p className="ProjectsSection__Title">{`${project.title} ${index + 1}`}</p>
               <p className="ProjectsSection__Description">{project.description}</p>
