@@ -4,6 +4,7 @@ import Navbar from '../components/organisms/Navbar'
 import IntroSection from '../components/templates/IntroSection'
 import ProjectsSection from '../components/templates/ProjectsSection'
 import AboutMeSection from '../components/templates/AboutMeSection'
+import GetInTouchSection from '../components/templates/GetInTouchSection';
 import './styles.scss'
 
 const App = () => (
@@ -15,16 +16,12 @@ const App = () => (
       />
       <title>Fabian Lee | Software Engineer from Hong Kong</title>
       <link rel="canonical" href="https://sugarfabby.com/"></link>
-      <link
-        href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Roboto:300,400,700&display=swap"
-        rel="stylesheet"
-      />
     </Helmet>
     <Navbar />
     <IntroSection />
     <ProjectsSection />
     <AboutMeSection />
-    <div>Get In Touch</div>
+    <GetInTouchSection />
   </main>
 )
 

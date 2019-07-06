@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Button from '../../atoms/Button'
-import logo from '../../../assets/images/my-logo.svg'
+import Icon from '../../atoms/Icon'
 import './styles.scss'
 
 const Navbar = () => {
@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <nav className="Navbar">
-      <img className="Navbar__Logo" src={logo} alt="fabian-logo" />
+      <Icon className="Navbar__Logo" icon="logo" />
       <ul className="Navbar__NavItems">
         <li className="Navbar__NavItem">Projects</li>
         <li className="Navbar__NavItem">About Me</li>
