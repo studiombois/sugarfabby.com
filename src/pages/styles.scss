@@ -4,6 +4,8 @@
   --color-light: #FFFFFF;
   --color-dark: #273043;
   --color-grey: #F9F9F9;
+  --color-grey-disabled: #e2e2e2;
+  --color-grey-darker: #aaa;
 
   --base-font-size: 16px;
 }
@@ -19,6 +21,7 @@
 html, body {
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
   color: var(--color-dark);
+  scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4 {

@@ -4,6 +4,10 @@
   padding: 8px 20px;
   transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
+  
+  a {
+    display: block;
+  }
 }
 
 .Button--hollow {
@@ -27,3 +31,14 @@
     background: var(--color-primary-darker);
   }
 }
+
+.Button--disabled {
+  color: var(--color-grey-darker);
+  border: 1px solid var(--color-grey-disabled);
+  pointer-events: none;
+}
+
+.Button--disabled--fill {
+  background: var(--color-grey-disabled);
+}
+
