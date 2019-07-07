@@ -10,6 +10,8 @@ module.exports = {
     title: 'Fabian Lee | Software Engineer from Hong Kong',
     author: 'Fabian Lee',
     email: 'chleefabian@gmail.com',
+    description: 'Software Engineer from Hong Kong with focus on Front-end Development and Human-centered Design.',
+    url: 'https://sugarfabby.com/',
     socialMedia: [
       { link: 'https://github.com/fabianlee1211', platform: 'github' },
       { link: 'https://www.linkedin.com/in/fabiannnlee/', platform: 'linkedin' },
@@ -42,5 +44,12 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      }
+    }
   ]
 }

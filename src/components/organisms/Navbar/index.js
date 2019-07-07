@@ -19,9 +19,9 @@ const Navbar = () => {
     <nav className="Navbar">
       <Icon className="Navbar__Logo" icon="logo" />
       <ul className="Navbar__NavItems">
-        <li className="Navbar__NavItem">Projects</li>
-        <li className="Navbar__NavItem">About Me</li>
-        <Button><a href={`mailto:${data.site.siteMetadata.email}`}>Email Me</a></Button>
+        <a href="#projects" className="Navbar__NavItem">Projects</a>
+        <a href="#about-me" className="Navbar__NavItem">About Me</a>
+        <Button link={`mailto:${data.site.siteMetadata.email}`}>Email Me</Button>
       </ul>
     </nav>
   )
