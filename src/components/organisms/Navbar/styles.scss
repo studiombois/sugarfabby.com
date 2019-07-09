@@ -1,9 +1,12 @@
+.Navbar__Wrapper {
+  max-width: 1440px;
+  padding: 20px;
+}
+
 .Navbar {
   display: flex;
   justify-content: space-between;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 20px;
+  background: var(--color-light);
 }
 
 .Navbar__Logo {

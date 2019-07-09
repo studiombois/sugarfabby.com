@@ -1,5 +1,5 @@
 .Button {
-  min-width: 112px;
+  min-width: 137px;
   border-radius: 20px;
   padding: 8px 20px;
   transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -11,11 +11,11 @@
 }
 
 .Button--hollow {
-  background: var(--color-light);
+  background: transparent;
   border: 1px solid var(--color-primary);
   color: var(--color-primary);
   &:hover {
-    color:  var(--color-light);
+    color:  var(--color-white);
     border: 1px solid var(--color-primary-darker);
     background: var(--color-primary-darker);
   }
@@ -23,22 +23,21 @@
 
 .Button--fill {
   background: var(--color-primary);
-  color: var(--color-light);
+  color: var(--color-white);
   border: 1px solid var(--color-primary);
   &:hover { 
-    color: var(--color-light);
     border: 1px solid var(--color-primary-darker);
     background: var(--color-primary-darker);
   }
 }
 
 .Button--disabled {
-  color: var(--color-grey-darker);
-  border: 1px solid var(--color-grey-disabled);
+  color: var(--color-disabled-darker);
+  border: 1px solid var(--color-disabled);
   pointer-events: none;
 }
 
 .Button--disabled--fill {
-  background: var(--color-grey-disabled);
+  background: var(--color-disabled);
 }
 
