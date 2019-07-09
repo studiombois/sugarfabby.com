@@ -5,12 +5,16 @@ import Navbar from '../components/organisms/Navbar'
 import IntroSection from '../components/templates/IntroSection'
 import ProjectsSection from '../components/templates/ProjectsSection'
 import AboutMeSection from '../components/templates/AboutMeSection'
-import GetInTouchSection from '../components/templates/GetInTouchSection';
+import GetInTouchSection from '../components/templates/GetInTouchSection'
+import { ThemeContext } from '../components/context'
+import useDarkMode from '../components/hooks/useDarkMode'
 import './styles.scss'
 
 const App = ({ data }) => {
+  const [ theme, toggleTheme ] = useDarkMode()
   const { title, author, description, url } = data.site.siteMetadata
   const { url: openGraphImage } = data.contentfulAsset.file
+
   return (
     <main className="App">
       <Helmet>
@@ -22,11 +26,13 @@ const App = ({ data }) => {
         <title>{title}</title>
         <link rel="canonical" href={url}></link>
       </Helmet>
-      <Navbar />
-      <IntroSection />
-      <ProjectsSection id="projects" />
-      <AboutMeSection id="about-me" />
-      <GetInTouchSection />
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+        <Navbar />
+        <IntroSection />
+        <ProjectsSection id="projects" />
+        <AboutMeSection id="about-me" />
+        <GetInTouchSection />
+      </ThemeContext.Provider>
     </main>
   )
 }

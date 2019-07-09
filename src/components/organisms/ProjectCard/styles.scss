@@ -1,5 +1,5 @@
 .ProjectCard {
-  background: var(--color-grey);
+  background: var(--color-light);
 }
 
 .ProjectCard__Projects {
@@ -56,13 +56,13 @@
   margin-bottom: 35px;
 
   @media screen and (min-width: 768px) {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
 }
 
 .ProjectCard__SkillsUsed, .ProjectCard__SkillsUsed > * {
   font-size: 14px;
-  color: var(--color-grey-darker);
+  color: var(--color-disabled-darker);
 }
 
 .ProjectCard__Buttons {

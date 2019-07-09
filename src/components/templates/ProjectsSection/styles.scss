@@ -1,5 +1,5 @@
 .ProjectsSection {
-  background: var(--color-grey);
+  background: var(--color-dark);
 }
 
 .ProjectsSection__Projects {
@@ -17,7 +17,6 @@
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 20px;
   }
-  
 }
 
 .ProjectsSection__Project {
