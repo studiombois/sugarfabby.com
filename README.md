@@ -1,7 +1,7 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+    <img alt="Gatsby" src="https://images.ctfassets.net/msnp0d5q63m6/3jrVJHiJ2rldK577wna1VZ/5650298509f25aa39e36224e4f56be72/fabian-logo-circle.png?h=250" />
   </a>
 </p>
 <h1 align="center">
