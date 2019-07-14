@@ -14,6 +14,7 @@ const IntroSection = () => {
         siteMetadata {
           author
           email
+          description
         }
       }
       contentfulAsset (title: { eq: "resume" }) {
@@ -25,13 +26,13 @@ const IntroSection = () => {
   `)
   const themeContext = useContext(ThemeContext)
   const { theme } = themeContext
-  const { author, email } = data.site.siteMetadata
+  const { author, email, description } = data.site.siteMetadata
   const { url: resumeUrl } = data.contentfulAsset.file
   return (
     <Layout innerClassName="IntroSection">
       <div className="IntroSection__Headline">
         <h1 className="IntroSection__Title">{author}</h1>
-        <p className="IntroSection__Subtitle">Software Engineer based in Hong Kong with focus on Front-end Dev and Human-centered Design.</p>
+        <p className="IntroSection__Subtitle">{description}</p>
         <div className="IntroSection__Buttons">
           <Button link={`mailto:${email}`} target="_self">Email Me</Button>
           <Button link={resumeUrl} fill>View Resume</Button>
