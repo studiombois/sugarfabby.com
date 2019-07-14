@@ -11,7 +11,7 @@ module.exports = {
     author: 'Fabian Lee',
     email: 'chleefabian@gmail.com',
     description: 'Software Engineer from Hong Kong with focus on Front-end Development and Human-centered Design.',
-    url: 'https://sugarfabby.com/',
+    siteUrl: 'https://sugarfabby.com/',
     socialMedia: [
       { link: 'https://github.com/fabianlee1211', platform: 'github' },
       { link: 'https://www.linkedin.com/in/fabiannnlee/', platform: 'linkedin' },
@@ -22,6 +22,8 @@ module.exports = {
     `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
+    `gatsby-plugin-sitemap`,
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

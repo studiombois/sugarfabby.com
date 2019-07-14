@@ -1,6 +1,4 @@
 import React, { useContext } from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import Button from '../../atoms/Button'
 import Icon from '../../atoms/Icon'
 import Switch from '../../atoms/Switch'
 import Layout from '../../atoms/Layout'

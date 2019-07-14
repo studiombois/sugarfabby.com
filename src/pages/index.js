@@ -12,7 +12,7 @@ import './styles.scss'
 
 const App = ({ data }) => {
   const [ theme, toggleTheme ] = useDarkMode()
-  const { title, author, description, url } = data.site.siteMetadata
+  const { title, author, description, siteUrl } = data.site.siteMetadata
   const { url: openGraphImage } = data.contentfulAsset.file
 
   return (
@@ -24,7 +24,7 @@ const App = ({ data }) => {
         <meta property="og:description" content={description} />
         <meta property="og:title" content={title}></meta>
         <title>{title}</title>
-        <link rel="canonical" href={url}></link>
+        <link rel="canonical" href={siteUrl}></link>
       </Helmet>
       <ThemeContext.Provider value={{ theme, toggleTheme }}>
         <Navbar />
@@ -44,7 +44,7 @@ export const query = graphql`
         title
         author
         description
-        url
+        siteUrl
       }
     }
     contentfulAsset (title: { eq: "fabian-portfolio-open-graph" }) {
