@@ -11,7 +11,7 @@ import useDarkMode from '../components/hooks/useDarkMode'
 import './styles.scss'
 
 const App = ({ data }) => {
-  const [ theme, toggleTheme ] = useDarkMode()
+  const [ theme, avatar, toggleTheme ] = useDarkMode()
   const { title, author, description, siteUrl } = data.site.siteMetadata
   const { url: openGraphImage } = data.contentfulAsset.file
 
@@ -26,7 +26,7 @@ const App = ({ data }) => {
         <title>{title}</title>
         <link rel="canonical" href={siteUrl}></link>
       </Helmet>
-      <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <ThemeContext.Provider value={{ theme, avatar, toggleTheme }}>
         <Navbar />
         <IntroSection />
         <ProjectsSection id="projects" />

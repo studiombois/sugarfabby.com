@@ -2,8 +2,6 @@ import React, { useContext } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Button from '../../atoms/Button'
 import Layout from '../../atoms/Layout'
-import avatar from '../../../assets/images/avatar.svg'
-import avatarDark from '../../../assets/images/avatar-dark.svg'
 import { ThemeContext } from '../../context'
 import './styles.scss'
 
@@ -25,7 +23,7 @@ const IntroSection = () => {
     }
   `)
   const themeContext = useContext(ThemeContext)
-  const { theme } = themeContext
+  const { avatar } = themeContext
   const { author, email, description } = data.site.siteMetadata
   const { url: resumeUrl } = data.contentfulAsset.file
   return (
@@ -38,7 +36,7 @@ const IntroSection = () => {
           <Button link={resumeUrl} fill>View Resume</Button>
         </div>
       </div>
-      <img className="IntroSection__Avatar" src={theme === 'dark' ? avatarDark : avatar} alt="fabian-avatar"/>
+      <img className="IntroSection__Avatar" src={avatar} alt="fabian-avatar"/>
     </Layout>
   )
 }

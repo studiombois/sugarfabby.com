@@ -1,24 +1,27 @@
 import { useState, useEffect } from 'react'
 
 const useDarkMode = () => {
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState(null)
+  const [avatar, setAvatar] = useState(null)
+
   useEffect(() => {
-    const storedTheme = localStorage.getItem('theme')
-    storedTheme && setTheme(storedTheme)
-    document.documentElement.setAttribute('data-theme', theme)
+    if (typeof window !== 'undefined' && window.__theme) {
+      setTheme(theme || window.__theme)
+      setAvatar(window.__avatar)
+    }
   }, [theme])
 
   const toggleTheme = (isSwitchOn) => {
     if (isSwitchOn) {
       setTheme('dark')
-      localStorage.setItem('theme', 'dark')
+      window.__setPreferredTheme('dark')
     } else {
       setTheme('light')
-      localStorage.setItem('theme', 'light')
+      window.__setPreferredTheme('light')
     }
   }
 
-  return [theme, toggleTheme]
+  return [theme, avatar, toggleTheme]
 }
 
 export default useDarkMode
