@@ -39,6 +39,7 @@
 .IntroSection__Avatar {
   width: 335px;
   height: 198px;
+  animation: fadeIn 0.5s ease-in-out;
 
   @media screen and (min-width: 992px) {
     width: 534px;
@@ -49,5 +50,14 @@
 .IntroSection__Buttons {
   > :first-child {
     margin-right: 10px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

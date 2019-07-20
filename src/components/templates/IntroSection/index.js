@@ -36,7 +36,7 @@ const IntroSection = () => {
           <Button link={resumeUrl} fill>View Resume</Button>
         </div>
       </div>
-      <img className="IntroSection__Avatar" src={avatar} alt="fabian-avatar"/>
+      {avatar ? <img className="IntroSection__Avatar" src={avatar} alt="fabian-avatar"/> : <div className="IntroSection__Avatar" />}
     </Layout>
   )
 }
