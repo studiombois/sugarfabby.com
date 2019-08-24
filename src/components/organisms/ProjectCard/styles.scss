@@ -1,5 +1,5 @@
 .ProjectCard {
-  background: var(--color-light);
+  background: var(--color-background);
 }
 
 .ProjectCard__Projects {
@@ -20,7 +20,7 @@
 }
 
 .ProjectCard__Project {
-  background: var(--color-light);
+  background: var(--color-background);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -62,7 +62,7 @@
 
 .ProjectCard__SkillsUsed, .ProjectCard__SkillsUsed > * {
   font-size: 14px;
-  color: var(--color-disabled-darker);
+  color: var(--color-text-secondary);
 }
 
 .ProjectCard__Buttons {

@@ -6,7 +6,7 @@
 .Navbar {
   display: flex;
   justify-content: space-between;
-  background: var(--color-light);
+  background: var(--color-background);
 }
 
 .Navbar__Logo {
@@ -24,7 +24,7 @@
   display: none;
   cursor: pointer;
   &:hover {
-    color: var(--color-primary-darker);
+    color: var(--color-hover);
   }
   @media screen and (min-width: 768px){
     display: block;

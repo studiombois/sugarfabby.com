@@ -16,9 +16,14 @@
   color: var(--color-primary);
   &:hover {
     color:  var(--color-white);
-    border: 1px solid var(--color-primary-darker);
-    background: var(--color-primary-darker);
+    border: 1px solid var(--color-hover);
+    background: var(--color-hover);
   }
+  &:active, &:focus {
+    color:  var(--color-white);           
+    border: 1px solid var(--color-active);
+    background: var(--color-active);
+  } 
 }
 
 .Button--fill {
@@ -26,13 +31,17 @@
   color: var(--color-white);
   border: 1px solid var(--color-primary);
   &:hover { 
-    border: 1px solid var(--color-primary-darker);
-    background: var(--color-primary-darker);
+    border: 1px solid var(--color-hover);
+    background: var(--color-hover);
   }
+  &:active, &:focus {
+    border: 1px solid var(--color-active);
+    background: var(--color-active);
+  } 
 }
 
 .Button--disabled {
-  color: var(--color-disabled-darker);
+  color: var(--color-text-disabled);
   border: 1px solid var(--color-disabled);
   pointer-events: none;
 }
