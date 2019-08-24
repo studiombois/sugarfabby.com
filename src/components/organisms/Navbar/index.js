@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import Icon from '../../atoms/Icon'
 import Switch from '../../atoms/Switch'
 import Layout from '../../atoms/Layout'
-import { ThemeContext } from '../../context'
+import { ThemeContext } from '../../../context'
 import './styles.scss'
 
 const Navbar = () => {

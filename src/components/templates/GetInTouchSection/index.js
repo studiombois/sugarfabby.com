@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Layout from '../../atoms/Layout'
 import Icon from '../../atoms/Icon'
-import { ThemeContext } from '../../context'
+import { ThemeContext } from '../../../context'
 import './styles.scss'
 
 const GetInTouchSection = () => {

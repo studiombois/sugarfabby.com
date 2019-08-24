@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Button from '../../atoms/Button'
 import Layout from '../../atoms/Layout'
-import { ThemeContext } from '../../context'
+import { ThemeContext } from '../../../context'
 import './styles.scss'
 
 const IntroSection = () => {

@@ -6,8 +6,8 @@ import IntroSection from '../components/templates/IntroSection'
 import ProjectsSection from '../components/templates/ProjectsSection'
 import AboutMeSection from '../components/templates/AboutMeSection'
 import GetInTouchSection from '../components/templates/GetInTouchSection'
-import { ThemeContext } from '../components/context'
-import useDarkMode from '../components/hooks/useDarkMode'
+import { ThemeContext } from '../context'
+import useDarkMode from '../hooks/useDarkMode'
 import './styles.scss'
 
 const App = ({ data }) => {
