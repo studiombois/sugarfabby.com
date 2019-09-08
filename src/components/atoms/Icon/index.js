@@ -5,6 +5,8 @@ const Icon = ({ icon, link, ...props }) => {
   const iconStyle = {
     mask: `url(${src})`,
     maskSize: 'cover',
+    WebkitMask: `url(${src})`,
+    WebkitMaskSize: 'cover',
   }
   if (link) {
     return (
