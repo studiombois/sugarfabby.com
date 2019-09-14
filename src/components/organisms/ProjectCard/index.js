@@ -3,13 +3,17 @@ import Button from '../../atoms/Button'
 import './styles.scss'
 
 const ProjectCard = ({ project }) => {
-  const { 
+  const {
     title,
     demoLink,
     sourceLink,
     techUsed,
-    description: { childMarkdownRemark: { excerpt } },
-    screenshot: { file: { url } },
+    description: {
+      childMarkdownRemark: { excerpt },
+    },
+    screenshot: {
+      file: { url },
+    },
   } = project
 
   return (
@@ -19,11 +23,16 @@ const ProjectCard = ({ project }) => {
         <p className="ProjectCard__Title">{title}</p>
         <p className="ProjectCard__Description">{excerpt}</p>
         <p className="ProjectCard__SkillsUsed">
-          Skills Used: <br /><strong>{techUsed.join(', ')}</strong>
+          Skills Used: <br />
+          <strong>{techUsed.join(', ')}</strong>
         </p>
         <div className="ProjectCard__Buttons">
-          <Button link={sourceLink} disabled={!sourceLink}>View Source</Button>
-          <Button link={demoLink} disabled={!demoLink} fill>View Demo</Button>
+          <Button link={sourceLink} disabled={!sourceLink}>
+            View Source
+          </Button>
+          <Button link={demoLink} disabled={!demoLink} fill>
+            View Demo
+          </Button>
         </div>
       </div>
     </div>

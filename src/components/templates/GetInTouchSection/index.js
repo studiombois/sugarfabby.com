@@ -33,7 +33,7 @@ const GetInTouchSection = () => {
         You can also visit me on other platforms:
       </p>
       <div className="GetInTouchSection__SocialMediaButtons">
-        {socialMedia.map(media => (
+        {socialMedia.map((media) => (
           <Icon
             key={media.platform}
             className="GetInTouchSection__SocialMediaButton"

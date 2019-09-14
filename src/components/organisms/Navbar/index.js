@@ -13,11 +13,15 @@ const Navbar = () => {
       <nav className="Navbar">
         <img className="Navbar__Logo" src={logoSrc} alt="icon-logo" />
         <ul className="Navbar__NavItems">
-          <a href="#projects" className="Navbar__NavItem">Projects</a>
-          <a href="#about-me" className="Navbar__NavItem">About Me</a>
-          <Switch 
+          <a href="#projects" className="Navbar__NavItem">
+            Projects
+          </a>
+          <a href="#about-me" className="Navbar__NavItem">
+            About Me
+          </a>
+          <Switch
             className="Navbar__Switch"
-            onChange={e => toggleTheme(e.target.checked)}
+            onChange={(e) => toggleTheme(e.target.checked)}
             checked={theme === 'dark'}
           />
         </ul>

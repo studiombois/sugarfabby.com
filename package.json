@@ -30,7 +30,27 @@
   },
   "devDependencies": {
     "env-cmd": "^9.0.3",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "husky": "^3.0.5",
+    "lint-staged": "^9.2.5",
     "prettier": "^1.18.2"
+  },
+  "husky": {
+    "hooks": {
+      "post-checkout": "if [[ $HUSKY_GIT_PARAMS =~ $1 ]]; then npm install --no-package-lock; fi",
+      "post-merge": "npm install --no-package-lock",
+      "post-rebase": "npm install",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
   },
   "repository": {
     "type": "git",

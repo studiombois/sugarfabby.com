@@ -11,7 +11,7 @@ import useDarkMode from '../hooks/useDarkMode'
 import './styles.scss'
 
 const App = ({ data }) => {
-  const [ theme, avatar, toggleTheme ] = useDarkMode()
+  const [theme, avatar, toggleTheme] = useDarkMode()
   const { title, author, description, siteUrl } = data.site.siteMetadata
   const { url: openGraphImage } = data.contentfulAsset.file
 
@@ -47,7 +47,7 @@ export const query = graphql`
         siteUrl
       }
     }
-    contentfulAsset (title: { eq: "fabian-portfolio-open-graph" }) {
+    contentfulAsset(title: { eq: "fabian-portfolio-open-graph" }) {
       file {
         url
       }

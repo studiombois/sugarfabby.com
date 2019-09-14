@@ -1,5 +1,5 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react'
+import PropTypes from 'prop-types'
 import avatar from './assets/images/avatar.svg'
 import avatarDark from './assets/images/avatar-dark.svg'
 
@@ -21,8 +21,8 @@ export default function HTML(props) {
           This app works best with JavaScript enabled.
         </noscript>
         <script
-            dangerouslySetInnerHTML={{
-              __html: `
+          dangerouslySetInnerHTML={{
+            __html: `
               (function() {
                 function setTheme(newTheme) {
                   window.__theme = newTheme;
@@ -43,8 +43,8 @@ export default function HTML(props) {
                 setTheme(preferredTheme || 'light');
               })();
             `,
-            }}
-          />
+          }}
+        />
         <div
           key={`body`}
           id="___gatsby"

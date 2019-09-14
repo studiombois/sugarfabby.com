@@ -15,7 +15,7 @@ const IntroSection = () => {
           description
         }
       }
-      contentfulAsset (title: { eq: "resume" }) {
+      contentfulAsset(title: { eq: "resume" }) {
         file {
           url
         }
@@ -32,11 +32,23 @@ const IntroSection = () => {
         <h1 className="IntroSection__Title">{author}</h1>
         <p className="IntroSection__Subtitle">{description}</p>
         <div className="IntroSection__Buttons">
-          <Button link={`mailto:${email}`} target="_self">Email Me</Button>
-          <Button link={resumeUrl} fill>View Resume</Button>
+          <Button link={`mailto:${email}`} target="_self">
+            Email Me
+          </Button>
+          <Button link={resumeUrl} fill>
+            View Resume
+          </Button>
         </div>
       </div>
-      {avatar ? <img className="IntroSection__Avatar" src={avatar} alt="fabian-avatar"/> : <div className="IntroSection__Avatar" />}
+      {avatar ? (
+        <img
+          className="IntroSection__Avatar"
+          src={avatar}
+          alt="fabian-avatar"
+        />
+      ) : (
+        <div className="IntroSection__Avatar" />
+      )}
     </Layout>
   )
 }
