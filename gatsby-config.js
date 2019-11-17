@@ -3,13 +3,17 @@ module.exports = {
     title: 'Fabian Lee | Software Engineer from Hong Kong',
     author: 'Fabian Lee',
     email: 'chleefabian@gmail.com',
-    description: 'Software Engineer from Hong Kong with focus on Front-end Development and Human-centered Design.',
+    description:
+      'Software Engineer from Hong Kong with focus on Front-end Development and Human-centered Design.',
     siteUrl: 'https://sugarfabby.com/',
     socialMedia: [
       { link: 'https://github.com/fabianlee1211', platform: 'github' },
-      { link: 'https://www.linkedin.com/in/fabiannnlee/', platform: 'linkedin' },
+      {
+        link: 'https://www.linkedin.com/in/fabiannnlee/',
+        platform: 'linkedin',
+      },
       { link: 'https://www.behance.net/fabianlee', platform: 'behance' },
-    ]
+    ],
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -18,11 +22,23 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
     {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@components': `${__dirname}/src/components`,
+          '@assets': `${__dirname}/src/assets`,
+          '@hooks': `${__dirname}/src/hooks`,
+          '@context': `${__dirname}/src/context`,
+        },
+        extensions: ['js', 'scss'],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
-        path: `${__dirname}/src/`
-      }
+        path: `${__dirname}/src/`,
+      },
     },
     {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
@@ -30,11 +46,11 @@ module.exports = {
         fonts: [
           {
             family: `Roboto`,
-            variants: [`300`, `400`, `700`]
+            variants: [`300`, `400`, `700`],
           },
           {
             family: `Roboto Slab`,
-            variants: [`400`, `700`]
+            variants: [`400`, `700`],
           },
         ],
       },
@@ -44,14 +60,14 @@ module.exports = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      }
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: `UA-144168415-1`,
         head: true,
-      }
-    }
-  ]
+      },
+    },
+  ],
 }

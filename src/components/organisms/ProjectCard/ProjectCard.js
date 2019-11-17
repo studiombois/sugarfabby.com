@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../../atoms/Button'
+import Button from '@components/atoms/Button/Button'
 import './styles.scss'
 
 const ProjectCard = ({ project }) => {

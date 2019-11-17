@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
-import Button from '../../atoms/Button'
-import Layout from '../../atoms/Layout'
+import Button from '@components/atoms/Button/Button'
+import Layout from '@components/atoms/Layout/Layout'
 import { ThemeContext } from '../../../context'
 import './styles.scss'
 

@@ -1,13 +1,13 @@
 import React, { useContext } from 'react'
-import Switch from '../../atoms/Switch'
-import Layout from '../../atoms/Layout'
-import { ThemeContext } from '../../../context'
+import Switch from '@components/atoms/Switch/Switch'
+import Layout from '@components/atoms/Layout/Layout'
+import { ThemeContext } from '@context'
 import './styles.scss'
 
 const Navbar = () => {
   const themeContext = useContext(ThemeContext)
   const { theme, toggleTheme } = themeContext
-  const logoSrc = require(`../../atoms/Icon/icons/icon-logo.svg`)
+  const logoSrc = require(`@components/atoms/Icon/icons/icon-logo.svg`)
   return (
     <Layout innerClassName="Navbar__Wrapper">
       <nav className="Navbar">
