@@ -13,6 +13,7 @@ module.exports = {
         platform: 'linkedin',
       },
       { link: 'https://www.behance.net/fabianlee', platform: 'behance' },
+      { link: 'https://medium.com/@fabianlee', platform: 'medium' },
     ],
   },
   plugins: [
