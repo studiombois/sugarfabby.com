@@ -32,7 +32,7 @@
   object-position: center;
   width: 100%;
   height: 250px;
-  border-radius: 10px 10px 0px 0px
+  border-radius: 10px 10px 0px 0px;
 }
 
 .ProjectCard__Content {
@@ -44,7 +44,7 @@
 }
 
 .ProjectCard__Title {
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1.25rem;
 }
 
@@ -60,9 +60,13 @@
   }
 }
 
-.ProjectCard__SkillsUsed, .ProjectCard__SkillsUsed > * {
+.ProjectCard__SkillsUsed,
+.ProjectCard__SkillsUsed > * {
   font-size: 14px;
   color: var(--color-text-secondary);
+  span {
+    font-weight: 500;
+  }
 }
 
 .ProjectCard__Buttons {

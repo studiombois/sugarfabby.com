@@ -3,40 +3,65 @@
   color: var(--color-text-footer);
 }
 
-
 .GetInTouchSection__Wrapper {
-  max-width: 768px;
+  display: flex;
+  flex-direction: column;
+}
+
+.GetInTouchSection__LinkWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 }
 
 .GetInTouchSection__Text {
-  margin: 20px 0 30px;
+  flex: 1;
+  font-size: 14px;
+  @media screen and (min-width: 768px) {
+    align-self: flex-start;
+  }
 }
 
-.GetInTouchSection__Email {
-  text-decoration: underline;
-}
-
-.GetInTouchSection__SocialMediaButtons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.GetInTouchSection__Links {
   > :not(:last-child) {
     margin-right: 20px;
   }
 }
 
+.GetInTouchSection__SocialMediaButtons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  > :not(:last-child) {
+    margin-right: 15px;
+  }
+  @media screen and (min-width: 768px) {
+    margin: 0;
+  }
+}
+
 .GetInTouchSection__SocialMediaButton {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   display: block;
-  opacity: 0.4;
+  opacity: 0.7;
   background-color: var(--color-text-footer);
-  transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1)
+  transition: opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.GetInTouchSection__ScrollToTop {
+  cursor: pointer;
+  display: inline-block;
 }
 
 .GetInTouchSection__SocialMediaButton:hover {
   opacity: 1;
 }
-
-
-

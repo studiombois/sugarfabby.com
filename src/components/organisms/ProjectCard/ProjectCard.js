@@ -24,7 +24,7 @@ const ProjectCard = ({ project }) => {
         <p className="ProjectCard__Description">{excerpt}</p>
         <p className="ProjectCard__SkillsUsed">
           Skills Used: <br />
-          <strong>{techUsed.join(', ')}</strong>
+          <span>{techUsed.join(', ')}</span>
         </p>
         <div className="ProjectCard__Buttons">
           <Button link={sourceLink} disabled={!sourceLink}>

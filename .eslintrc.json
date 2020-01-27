@@ -25,7 +25,7 @@
   },
   "plugins": ["prettier", "react"],
   "rules": {
-    "no-unused-expressions": 2,
+    "no-unused-expressions": 0,
     "react/prop-types": 0
   }
 }

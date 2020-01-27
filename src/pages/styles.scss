@@ -1,21 +1,21 @@
 :root {
-  --color-darkMode-lighter: #CEE7FE;
-  --color-darkMode-light: #6D93B3;
-  --color-darkMode: #0B2038;
+  --color-darkMode-lighter: #cee7fe;
+  --color-darkMode-light: #6d93b3;
+  --color-darkMode: #0b2038;
   --color-darkMode-dark: #001426;
-  --color-darkMode-darker: #000B14;
-  
-  --color-primary-lighter: #CEE7FE;
-  --color-primary-light: #82C4FE;
-  --color-primary: #4FACFE;
-  --color-primary-dark: #1986E6;
-  --color-primary-darker: #1267B3;
-  
-  --color-white: #FFFFFF;
-  --color-grey-light: #F9F9F9;
-  --color-grey: #DCDCDC;
-  --color-grey-dark: #A7A7A7;
-  --color-grey-darker: #6B6B6B;
+  --color-darkMode-darker: #000b14;
+
+  --color-primary-lighter: #cee7fe;
+  --color-primary-light: #82c4fe;
+  --color-primary: #4facfe;
+  --color-primary-dark: #1986e6;
+  --color-primary-darker: #1267b3;
+
+  --color-white: #ffffff;
+  --color-grey-light: #f9f9f9;
+  --color-grey: #dcdcdc;
+  --color-grey-dark: #a7a7a7;
+  --color-grey-darker: #6b6b6b;
 
   --color-background: var(--color-white);
   --color-background-dark: var(--color-grey-light);
@@ -31,7 +31,7 @@
   --base-font-size: 16px;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --color-background: var(--color-darkMode);
   --color-background-dark: var(--color-darkMode-dark);
   --color-background-footer: var(--color-darkMode-darker);
@@ -50,21 +50,25 @@
   box-sizing: border-box;
   font-size: var(--base-font-size);
   line-height: 1.42857em;
-  transition: background 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+  transition: background 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-html, body {
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+html,
+body {
+  font-family: 'CircularStd', 'Roboto', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
   color: var(--color-text);
   scroll-behavior: smooth;
 }
 
-h1, h2, h3, h4 {
-  font-family: 'Roboto Slab', 'Times New Roman', Times, serif;
-  font-weight: bold;
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
 }
 
-h1 { 
+h1 {
   font-size: 2.5rem;
   @media screen and (min-width: 992px) {
     font-size: 3.5rem;
@@ -87,6 +91,7 @@ a {
   color: inherit;
 }
 
-.App section, nav {
+.App section,
+nav {
   margin: 0 auto;
 }

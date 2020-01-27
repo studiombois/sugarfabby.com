@@ -1,3 +1,5 @@
+import 'circular-std'
+import './styles.scss'
 import React from 'react'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
@@ -8,7 +10,6 @@ import AboutMeSection from '@components/templates/AboutMeSection/AboutMeSection'
 import GetInTouchSection from '@components/templates/GetInTouchSection/GetInTouchSection'
 import { ThemeContext } from '@context'
 import useDarkMode from '@hooks/useDarkMode'
-import './styles.scss'
 
 const App = ({ data }) => {
   const [theme, avatar, toggleTheme] = useDarkMode()

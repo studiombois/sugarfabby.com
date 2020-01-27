@@ -9,7 +9,6 @@ const GetInTouchSection = () => {
     query {
       site {
         siteMetadata {
-          email
           socialMedia {
             link
             platform
@@ -18,30 +17,45 @@ const GetInTouchSection = () => {
       }
     }
   `)
-  const { email, socialMedia } = data.site.siteMetadata
+  const { socialMedia } = data.site.siteMetadata
+  const year = new Date().getFullYear()
+
+  const scrollToTop = () => {
+    if (typeof window !== 'undefined' && window.scroll) {
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      })
+    }
+  }
+
   return (
     <Layout
       className="GetInTouchSection"
       innerClassName="GetInTouchSection__Wrapper"
     >
-      <h2 className="GetInTouchSection__Title">Get In Touch</h2>
-      <p className="GetInTouchSection__Text">
-        Shoot me an email at{' '}
-        <span className="GetInTouchSection__Email">{email}</span> if you have
-        anything in mind.
-        <br />
-        You can also visit me on other platforms:
-      </p>
-      <div className="GetInTouchSection__SocialMediaButtons">
-        {socialMedia.map((media) => (
-          <Icon
-            key={media.platform}
-            className="GetInTouchSection__SocialMediaButton"
-            icon={media.platform}
-            link={media.link}
-          />
-        ))}
+      <div className="GetInTouchSection__LinkWrapper">
+        <div className="GetInTouchSection__SocialMediaButtons">
+          {socialMedia.map((media) => (
+            <Icon
+              key={media.platform}
+              className="GetInTouchSection__SocialMediaButton"
+              icon={media.platform}
+              link={media.link}
+            />
+          ))}
+        </div>
+        <div className="GetInTouchSection__Links">
+          <a href="#projects">Projects</a>
+          <p className="GetInTouchSection__ScrollToTop" onClick={scrollToTop}>
+            Back To Top
+          </p>
+        </div>
       </div>
+      <p className="GetInTouchSection__Text">
+        © {year} Fabian Lee. All Rights Reserved.
+      </p>
     </Layout>
   )
 }

@@ -49,10 +49,6 @@ module.exports = {
             family: `Roboto`,
             variants: [`300`, `400`, `700`],
           },
-          {
-            family: `Roboto Slab`,
-            variants: [`400`, `700`],
-          },
         ],
       },
     },
@@ -66,7 +62,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-144168415-1`,
+        trackingId: process.env.GOOGLE_ANALYTICS,
         head: true,
       },
     },
