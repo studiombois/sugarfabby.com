@@ -13,11 +13,12 @@ const GetInTouchSection = () => {
             link
             platform
           }
+          blogUrl
         }
       }
     }
   `)
-  const { socialMedia } = data.site.siteMetadata
+  const { socialMedia, blogUrl } = data.site.siteMetadata
   const year = new Date().getFullYear()
 
   const scrollToTop = () => {
@@ -48,6 +49,7 @@ const GetInTouchSection = () => {
         </div>
         <div className="GetInTouchSection__Links">
           <a href="#projects">Projects</a>
+          <a href={blogUrl}>Blog</a>
           <p className="GetInTouchSection__ScrollToTop" onClick={scrollToTop}>
             Back To Top
           </p>

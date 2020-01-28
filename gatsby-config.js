@@ -6,6 +6,7 @@ module.exports = {
     description:
       'Software Engineer from Hong Kong with focus on Front-end Development and Human-centered Design.',
     siteUrl: 'https://sugarfabby.com/',
+    blogUrl: 'https://blog.sugarfabby.com/',
     socialMedia: [
       { link: 'https://github.com/fabianlee1211', platform: 'github' },
       {

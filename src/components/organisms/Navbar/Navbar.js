@@ -4,7 +4,7 @@ import Layout from '@components/atoms/Layout/Layout'
 import { ThemeContext } from '@context'
 import './styles.scss'
 
-const Navbar = () => {
+const Navbar = ({ blogUrl }) => {
   const themeContext = useContext(ThemeContext)
   const { theme, toggleTheme } = themeContext
   const logoSrc = require(`@components/atoms/Icon/icons/icon-logo.svg`)
@@ -18,6 +18,9 @@ const Navbar = () => {
           </a>
           <a href="#about-me" className="Navbar__NavItem">
             About Me
+          </a>
+          <a href={blogUrl} className="Navbar__NavItem">
+            Blog
           </a>
           <Switch
             className="Navbar__Switch"

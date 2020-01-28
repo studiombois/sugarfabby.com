@@ -13,7 +13,13 @@ import useDarkMode from '@hooks/useDarkMode'
 
 const App = ({ data }) => {
   const [theme, avatar, toggleTheme] = useDarkMode()
-  const { title, author, description, siteUrl } = data.site.siteMetadata
+  const {
+    title,
+    author,
+    description,
+    siteUrl,
+    blogUrl,
+  } = data.site.siteMetadata
   const { url: openGraphImage } = data.contentfulAsset.file
 
   return (
@@ -28,7 +34,7 @@ const App = ({ data }) => {
         <link rel="canonical" href={siteUrl}></link>
       </Helmet>
       <ThemeContext.Provider value={{ theme, avatar, toggleTheme }}>
-        <Navbar />
+        <Navbar {...{ blogUrl }} />
         <IntroSection />
         <ProjectsSection id="projects" />
         <AboutMeSection id="about-me" />
@@ -46,6 +52,7 @@ export const query = graphql`
         author
         description
         siteUrl
+        blogUrl
       }
     }
     contentfulAsset(title: { eq: "fabian-portfolio-open-graph" }) {
