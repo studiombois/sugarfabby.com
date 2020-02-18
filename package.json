@@ -32,7 +32,7 @@
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
-    "env-cmd": "^9.0.3",
+    "env-cmd": "^10.1.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.14.3",
