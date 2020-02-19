@@ -24,7 +24,7 @@
     "gatsby-plugin-sass": "^2.1.0",
     "gatsby-plugin-sitemap": "^2.2.27",
     "gatsby-source-contentful": "^2.1.85",
-    "gatsby-source-filesystem": "^2.1.2",
+    "gatsby-source-filesystem": "^2.1.48",
     "gatsby-transformer-remark": "^2.6.1",
     "node-sass": "^4.13.1",
     "react": "^16.8.6",
