@@ -20,8 +20,8 @@ const ProjectsSection = ({ ...props }) => {
             }
           }
           screenshot {
-            file {
-              url
+            fluid(maxWidth: 700) {
+              ...GatsbyContentfulFluid
             }
           }
         }

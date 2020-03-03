@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from '@components/atoms/Button/Button'
+import Img from 'gatsby-image'
 import './styles.scss'
 
 const ProjectCard = ({ project }) => {
@@ -11,14 +12,12 @@ const ProjectCard = ({ project }) => {
     description: {
       childMarkdownRemark: { excerpt },
     },
-    screenshot: {
-      file: { url },
-    },
+    screenshot: { fluid },
   } = project
 
   return (
     <div className="ProjectCard__Project">
-      <img className="ProjectCard__Screenshot" src={url} alt={title} />
+      <Img className="ProjectCard__Screenshot" fluid={fluid} alt={title} />
       <div className="ProjectCard__Content">
         <p className="ProjectCard__Title">{title}</p>
         <p className="ProjectCard__Description">{excerpt}</p>
