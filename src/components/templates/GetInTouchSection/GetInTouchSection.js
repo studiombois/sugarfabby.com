@@ -1,7 +1,7 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import Layout from '@components/atoms/Layout/Layout'
 import Icon from '@components/atoms/Icon/Icon'
+import Layout from '@components/atoms/Layout/Layout'
+import { graphql, useStaticQuery } from 'gatsby'
+import React from 'react'
 import './styles.scss'
 
 const GetInTouchSection = () => {

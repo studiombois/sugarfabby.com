@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
-import Switch from '@components/atoms/Switch/Switch'
 import Layout from '@components/atoms/Layout/Layout'
+import Switch from '@components/atoms/Switch/Switch'
 import { ThemeContext } from '@context'
+import React, { useContext } from 'react'
 import './styles.scss'
 
 const Navbar = ({ blogUrl }) => {

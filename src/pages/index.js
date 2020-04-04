@@ -1,15 +1,15 @@
-import 'circular-std'
-import './styles.scss'
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import { graphql } from 'gatsby'
 import Navbar from '@components/organisms/Navbar/Navbar'
-import IntroSection from '@components/templates/IntroSection/IntroSection'
-import ProjectsSection from '@components/templates/ProjectsSection/ProjectsSection'
 import AboutMeSection from '@components/templates/AboutMeSection/AboutMeSection'
 import GetInTouchSection from '@components/templates/GetInTouchSection/GetInTouchSection'
+import IntroSection from '@components/templates/IntroSection/IntroSection'
+import ProjectsSection from '@components/templates/ProjectsSection/ProjectsSection'
 import { ThemeContext } from '@context'
 import useDarkMode from '@hooks/useDarkMode'
+import 'circular-std'
+import { graphql } from 'gatsby'
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import './styles.scss'
 
 const App = ({ data }) => {
   const [theme, avatar, toggleTheme] = useDarkMode()

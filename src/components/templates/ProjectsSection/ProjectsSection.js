@@ -1,7 +1,7 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import Layout from '@components/atoms/Layout/Layout'
 import ProjectCard from '@components/organisms/ProjectCard/ProjectCard'
+import { graphql, useStaticQuery } from 'gatsby'
+import React from 'react'
 import './styles.scss'
 
 const ProjectsSection = ({ ...props }) => {

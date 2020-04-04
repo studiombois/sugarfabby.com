@@ -1,5 +1,5 @@
-import React from 'react'
 import Layout from '@components/atoms/Layout/Layout'
+import React from 'react'
 import './styles.scss'
 
 const AboutMeSection = ({ ...props }) => {

@@ -1,6 +1,6 @@
-import React from 'react'
 import Button from '@components/atoms/Button/Button'
 import Img from 'gatsby-image'
+import React from 'react'
 import './styles.scss'
 
 const ProjectCard = ({ project }) => {
