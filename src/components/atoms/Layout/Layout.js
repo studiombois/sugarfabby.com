@@ -1,5 +1,5 @@
-import React from 'react'
-import './styles.scss'
+import React from 'react';
+import './styles.scss';
 
 const Layout = ({ children, className, innerClassName, ...props }) => (
   <section className={className ? `Layout ${className}` : 'Layout'} {...props}>
@@ -11,11 +11,11 @@ const Layout = ({ children, className, innerClassName, ...props }) => (
       {children}
     </div>
   </section>
-)
+);
 
 Layout.defaultProps = {
   className: '',
   innerClassName: '',
-}
+};
 
-export default Layout
+export default Layout;

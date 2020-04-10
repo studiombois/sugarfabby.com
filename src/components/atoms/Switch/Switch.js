@@ -1,5 +1,5 @@
-import React from 'react'
-import './styles.scss'
+import React from 'react';
+import './styles.scss';
 
 const Switch = ({ onChange, checked, className }) => {
   return (
@@ -12,7 +12,7 @@ const Switch = ({ onChange, checked, className }) => {
       />
       <div className="Switch__Slider Switch__Slider--round"></div>
     </label>
-  )
-}
+  );
+};
 
-export default Switch
+export default Switch;

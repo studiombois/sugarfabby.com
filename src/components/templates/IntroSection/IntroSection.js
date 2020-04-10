@@ -1,9 +1,9 @@
-import Button from '@components/atoms/Button/Button'
-import Layout from '@components/atoms/Layout/Layout'
-import { graphql, useStaticQuery } from 'gatsby'
-import React, { useContext } from 'react'
-import { ThemeContext } from '../../../context'
-import './styles.scss'
+import Button from '@components/atoms/Button/Button';
+import Layout from '@components/atoms/Layout/Layout';
+import { graphql, useStaticQuery } from 'gatsby';
+import React, { useContext } from 'react';
+import { ThemeContext } from '../../../context';
+import './styles.scss';
 
 const IntroSection = () => {
   const data = useStaticQuery(graphql`
@@ -21,11 +21,11 @@ const IntroSection = () => {
         }
       }
     }
-  `)
-  const themeContext = useContext(ThemeContext)
-  const { avatar } = themeContext
-  const { author, email, description } = data.site.siteMetadata
-  const { url: resumeUrl } = data.contentfulAsset.file
+  `);
+  const themeContext = useContext(ThemeContext);
+  const { avatar } = themeContext;
+  const { author, email, description } = data.site.siteMetadata;
+  const { url: resumeUrl } = data.contentfulAsset.file;
   return (
     <Layout innerClassName="IntroSection">
       <div className="IntroSection__Headline">
@@ -50,7 +50,7 @@ const IntroSection = () => {
         <div className="IntroSection__Avatar" />
       )}
     </Layout>
-  )
-}
+  );
+};
 
-export default IntroSection
+export default IntroSection;

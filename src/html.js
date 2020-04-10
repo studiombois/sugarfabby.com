@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import avatarDark from './assets/images/avatar-dark.svg'
-import avatar from './assets/images/avatar.svg'
+import PropTypes from 'prop-types';
+import React from 'react';
+import avatarDark from './assets/images/avatar-dark.svg';
+import avatar from './assets/images/avatar.svg';
 
 export default function HTML(props) {
   return (
@@ -57,7 +57,7 @@ export default function HTML(props) {
         {props.postBodyComponents}
       </body>
     </html>
-  )
+  );
 }
 
 HTML.propTypes = {
@@ -67,4 +67,4 @@ HTML.propTypes = {
   preBodyComponents: PropTypes.array,
   body: PropTypes.string,
   postBodyComponents: PropTypes.array,
-}
+};

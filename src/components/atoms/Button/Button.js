@@ -1,12 +1,12 @@
-import React from 'react'
-import './styles.scss'
+import React from 'react';
+import './styles.scss';
 
 const Button = ({ children, onClick, fill, link, disabled, target }) => {
-  let styles = ['Button']
-  styles = disabled ? [...styles, 'Button--disabled'] : [...styles]
+  let styles = ['Button'];
+  styles = disabled ? [...styles, 'Button--disabled'] : [...styles];
   styles = fill
     ? [...styles, 'Button--fill', disabled && 'Button--disabled--fill']
-    : [...styles, 'Button--hollow']
+    : [...styles, 'Button--hollow'];
 
   if (link) {
     return (
@@ -15,18 +15,18 @@ const Button = ({ children, onClick, fill, link, disabled, target }) => {
           {children}
         </button>
       </a>
-    )
+    );
   }
 
   return (
     <button className={styles.join(' ')} onClick={onClick}>
       {children}
     </button>
-  )
-}
+  );
+};
 
 Button.defaultProps = {
   target: '_blank',
-}
+};
 
-export default Button
+export default Button;

@@ -1,26 +1,26 @@
-import Navbar from '@components/organisms/Navbar/Navbar'
-import AboutMeSection from '@components/templates/AboutMeSection/AboutMeSection'
-import GetInTouchSection from '@components/templates/GetInTouchSection/GetInTouchSection'
-import IntroSection from '@components/templates/IntroSection/IntroSection'
-import ProjectsSection from '@components/templates/ProjectsSection/ProjectsSection'
-import { ThemeContext } from '@context'
-import useDarkMode from '@hooks/useDarkMode'
-import 'circular-std'
-import { graphql } from 'gatsby'
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import './styles.scss'
+import Navbar from '@components/organisms/Navbar/Navbar';
+import AboutMeSection from '@components/templates/AboutMeSection/AboutMeSection';
+import GetInTouchSection from '@components/templates/GetInTouchSection/GetInTouchSection';
+import IntroSection from '@components/templates/IntroSection/IntroSection';
+import ProjectsSection from '@components/templates/ProjectsSection/ProjectsSection';
+import { ThemeContext } from '@context';
+import useDarkMode from '@hooks/useDarkMode';
+import 'circular-std';
+import { graphql } from 'gatsby';
+import React from 'react';
+import { Helmet } from 'react-helmet';
+import './styles.scss';
 
 const App = ({ data }) => {
-  const [theme, avatar, toggleTheme] = useDarkMode()
+  const [theme, avatar, toggleTheme] = useDarkMode();
   const {
     title,
     author,
     description,
     siteUrl,
     blogUrl,
-  } = data.site.siteMetadata
-  const { url: openGraphImage } = data.contentfulAsset.file
+  } = data.site.siteMetadata;
+  const { url: openGraphImage } = data.contentfulAsset.file;
 
   return (
     <main className="App">
@@ -41,8 +41,8 @@ const App = ({ data }) => {
         <GetInTouchSection />
       </ThemeContext.Provider>
     </main>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query {
@@ -61,6 +61,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default App
+export default App;

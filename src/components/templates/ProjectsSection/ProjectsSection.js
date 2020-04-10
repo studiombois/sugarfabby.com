@@ -1,8 +1,8 @@
-import Layout from '@components/atoms/Layout/Layout'
-import ProjectCard from '@components/organisms/ProjectCard/ProjectCard'
-import { graphql, useStaticQuery } from 'gatsby'
-import React from 'react'
-import './styles.scss'
+import Layout from '@components/atoms/Layout/Layout';
+import ProjectCard from '@components/organisms/ProjectCard/ProjectCard';
+import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
+import './styles.scss';
 
 const ProjectsSection = ({ ...props }) => {
   const data = useStaticQuery(graphql`
@@ -27,8 +27,8 @@ const ProjectsSection = ({ ...props }) => {
         }
       }
     }
-  `)
-  const projects = data.allContentfulProject.nodes
+  `);
+  const projects = data.allContentfulProject.nodes;
 
   return (
     <Layout className="ProjectsSection" {...props}>
@@ -39,7 +39,7 @@ const ProjectsSection = ({ ...props }) => {
         ))}
       </div>
     </Layout>
-  )
-}
+  );
+};
 
-export default ProjectsSection
+export default ProjectsSection;

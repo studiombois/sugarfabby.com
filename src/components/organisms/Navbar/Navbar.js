@@ -1,13 +1,13 @@
-import Layout from '@components/atoms/Layout/Layout'
-import Switch from '@components/atoms/Switch/Switch'
-import { ThemeContext } from '@context'
-import React, { useContext } from 'react'
-import './styles.scss'
+import Layout from '@components/atoms/Layout/Layout';
+import Switch from '@components/atoms/Switch/Switch';
+import { ThemeContext } from '@context';
+import React, { useContext } from 'react';
+import './styles.scss';
 
 const Navbar = ({ blogUrl }) => {
-  const themeContext = useContext(ThemeContext)
-  const { theme, toggleTheme } = themeContext
-  const logoSrc = require(`@components/atoms/Icon/icons/icon-logo.svg`)
+  const themeContext = useContext(ThemeContext);
+  const { theme, toggleTheme } = themeContext;
+  const logoSrc = require(`@components/atoms/Icon/icons/icon-logo.svg`);
   return (
     <Layout innerClassName="Navbar__Wrapper">
       <nav className="Navbar">
@@ -30,7 +30,7 @@ const Navbar = ({ blogUrl }) => {
         </ul>
       </nav>
     </Layout>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

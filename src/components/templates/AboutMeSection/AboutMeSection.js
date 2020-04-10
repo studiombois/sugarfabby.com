@@ -1,6 +1,6 @@
-import Layout from '@components/atoms/Layout/Layout'
-import React from 'react'
-import './styles.scss'
+import Layout from '@components/atoms/Layout/Layout';
+import React from 'react';
+import './styles.scss';
 
 const AboutMeSection = ({ ...props }) => {
   return (
@@ -18,7 +18,7 @@ const AboutMeSection = ({ ...props }) => {
         living beings.
       </p>
     </Layout>
-  )
-}
+  );
+};
 
-export default AboutMeSection
+export default AboutMeSection;

@@ -1,8 +1,8 @@
-import Icon from '@components/atoms/Icon/Icon'
-import Layout from '@components/atoms/Layout/Layout'
-import { graphql, useStaticQuery } from 'gatsby'
-import React from 'react'
-import './styles.scss'
+import Icon from '@components/atoms/Icon/Icon';
+import Layout from '@components/atoms/Layout/Layout';
+import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
+import './styles.scss';
 
 const GetInTouchSection = () => {
   const data = useStaticQuery(graphql`
@@ -17,9 +17,9 @@ const GetInTouchSection = () => {
         }
       }
     }
-  `)
-  const { socialMedia, blogUrl } = data.site.siteMetadata
-  const year = new Date().getFullYear()
+  `);
+  const { socialMedia, blogUrl } = data.site.siteMetadata;
+  const year = new Date().getFullYear();
 
   const scrollToTop = () => {
     if (typeof window !== 'undefined' && window.scroll) {
@@ -27,9 +27,9 @@ const GetInTouchSection = () => {
         top: 0,
         left: 0,
         behavior: 'smooth',
-      })
+      });
     }
-  }
+  };
 
   return (
     <Layout
@@ -59,7 +59,7 @@ const GetInTouchSection = () => {
         © {year} Fabian Lee. All Rights Reserved.
       </p>
     </Layout>
-  )
-}
+  );
+};
 
-export default GetInTouchSection
+export default GetInTouchSection;
