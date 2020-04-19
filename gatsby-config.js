@@ -13,6 +13,7 @@ module.exports = {
         link: 'https://www.linkedin.com/in/fabiannnlee/',
         platform: 'linkedin',
       },
+      { link: 'https://twitter.com/fabiannnlee', platform: 'twitter' },
       { link: 'https://www.behance.net/fabianlee', platform: 'behance' },
       { link: 'https://medium.com/@fabianlee', platform: 'medium' },
     ],
@@ -70,4 +71,4 @@ module.exports = {
       },
     },
   ],
-}
+};

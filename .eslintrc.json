@@ -14,7 +14,9 @@
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly",
     "require": "readonly",
-    "process": "readonly"
+    "process": "readonly",
+    "__dirname": "readonly",
+    "module": "readonly"
   },
   "parserOptions": {
     "ecmaFeatures": {
