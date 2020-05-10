@@ -26,6 +26,7 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
@@ -34,26 +35,24 @@ module.exports = {
           '@assets': `${__dirname}/src/assets`,
           '@hooks': `${__dirname}/src/hooks`,
           '@context': `${__dirname}/src/context`,
+          '@lib': `${__dirname}/src/lib`,
         },
         extensions: ['js', 'scss'],
       },
     },
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `blog`,
+    //     path: `${__dirname}/src/pages/blog`,
+    //   },
+    // },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        name: `src`,
-        path: `${__dirname}/src/`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: `Roboto`,
-            variants: [`300`, `400`, `700`],
-          },
-        ],
+        google: {
+          families: ['Inter:100,200,300,400,500,600,700,800'],
+        },
       },
     },
     {
@@ -68,6 +67,12 @@ module.exports = {
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS,
         head: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        extensions: ['.mdx', '.md'],
       },
     },
   ],

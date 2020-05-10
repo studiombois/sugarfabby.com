@@ -1,23 +1,31 @@
-import Layout from '@components/atoms/Layout/Layout';
+import Container from '@components/atoms/Container/Container';
+import Heading from '@components/atoms/Text/Heading';
+import Paragraph from '@components/atoms/Text/Paragraph';
 import React from 'react';
-import './styles.scss';
+import styled from 'styled-components';
+
+const StyledContainer = styled(Container)`
+  > div {
+    max-width: 640px;
+  }
+`;
 
 const AboutMeSection = ({ ...props }) => {
   return (
-    <Layout innerClassName="AboutMeSection__Wrapper" {...props}>
-      <h2>About Me</h2>
-      <p className="AboutMeSection__Description">
+    <StyledContainer {...props}>
+      <Heading as="h2">About Me</Heading>
+      <Paragraph>
         My name is Fabian Lee. I am a software engineer from Hong Kong who likes
         doing design and front-end development. I believe our world needs more
         people with compassion and inspire others to be better.
-        <br />
-        <br />
+      </Paragraph>
+      <Paragraph>
         I&apos;m not the most logical engineer you&apos;ll meet. But I&apos;m
         proud to be someone that sees the world in a humanistic perspective.
         This helps us understand and build meaningful relationship all other
         living beings.
-      </p>
-    </Layout>
+      </Paragraph>
+    </StyledContainer>
   );
 };
 
