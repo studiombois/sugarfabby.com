@@ -1,6 +1,7 @@
 import Box from '@components/atoms/Box/Box';
 import Button from '@components/atoms/Button/Button';
 import Heading from '@components/atoms/Text/Heading';
+import Text from '@components/atoms/Text/Text';
 import Img from 'gatsby-image';
 import React from 'react';
 import styled from 'styled-components';
@@ -22,19 +23,8 @@ const ButtonsContainer = styled(Box)`
   }
 `;
 
-const SkillsUsedText = styled.p`
-  margin-bottom: 35px;
+const SkillsUsedText = styled(Text)`
   color: var(--color-text-secondary);
-  span {
-    font-size: 14px;
-  }
-  span:nth-child(3) {
-    font-weight: 500;
-  }
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 40px;
-  }
 `;
 
 const ProjectCard = ({ project }) => {
@@ -63,15 +53,18 @@ const ProjectCard = ({ project }) => {
         }}
       />
       <ContentContainer p="20px" flex={1} flexDirection="column">
-        <Heading as="h3" style={{ marginBottom: 5 }}>
+        <Heading size="h5" style={{ margin: 0 }}>
           {title}
         </Heading>
-        <Heading as="h4">{excerpt}</Heading>
-        <SkillsUsedText>
-          <span>Skills Used: </span>
-          <br />
-          <span>{techUsed.join(', ')}</span>
-        </SkillsUsedText>
+        <Heading size="h6" style={{ margin: '5px 0 15px' }}>
+          {excerpt}
+        </Heading>
+        <Box flexDirection="column" mb="40px">
+          <SkillsUsedText size="small" fontWeight="600">
+            Skills Used:
+          </SkillsUsedText>
+          <SkillsUsedText size="small">{techUsed.join(', ')}</SkillsUsedText>
+        </Box>
         <ButtonsContainer justifyContent="center">
           <Button link={sourceLink} disabled={!sourceLink}>
             View Source

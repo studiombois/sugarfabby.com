@@ -2,7 +2,7 @@ import Box from '@components/atoms/Box/Box';
 import Container from '@components/atoms/Container/Container';
 import Icon from '@components/atoms/Icon/Icon';
 import { breakpoints } from '@lib/theme/GlobalStyles';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -32,8 +32,18 @@ const StyledBox = styled(Box)`
 `;
 
 const Links = styled(Box)`
-  > :not(:last-child) {
-    margin-right: 20px;
+  > :not(:first-child) {
+    margin-left: 5px;
+  }
+  a,
+  #scroll-to-top {
+    padding: 8px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+
+    &:hover {
+      color: var(--color-hover);
+    }
   }
 
   #scroll-to-top {
@@ -63,7 +73,7 @@ const RightsText = styled.p`
   }
 `;
 
-const GetInTouchSection = () => {
+const Footer = () => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -109,8 +119,8 @@ const GetInTouchSection = () => {
           ))}
         </SocialMediaButtonsBox>
         <Links>
-          <a href="#projects">Projects</a>
           <a href={blogUrl}>Blog</a>
+          <Link to="/about">About</Link>
           <p id="scroll-to-top" onClick={scrollToTop}>
             Back To Top
           </p>
@@ -121,4 +131,4 @@ const GetInTouchSection = () => {
   );
 };
 
-export default GetInTouchSection;
+export default Footer;

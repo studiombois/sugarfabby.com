@@ -1,27 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const useDarkMode = () => {
-  const [theme, setTheme] = useState(null);
+  const [mode, setMode] = useState(null);
   const [avatar, setAvatar] = useState(null);
 
   useEffect(() => {
     if (typeof window !== 'undefined' && window.__theme) {
-      setTheme(theme || window.__theme);
+      setMode(mode || window.__theme);
       setAvatar(window.__avatar);
     }
-  }, [theme]);
+  }, [mode]);
 
   const toggleTheme = (isSwitchOn) => {
     if (isSwitchOn) {
-      setTheme('dark');
+      setMode('dark');
       window.__setPreferredTheme('dark');
     } else {
-      setTheme('light');
+      setMode('light');
       window.__setPreferredTheme('light');
     }
   };
 
-  return [theme, avatar, toggleTheme];
+  return [mode, avatar, toggleTheme];
 };
 
 export default useDarkMode;

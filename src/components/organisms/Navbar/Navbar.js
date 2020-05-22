@@ -1,8 +1,8 @@
 import Container from '@components/atoms/Container/Container';
 import Switch from '@components/atoms/Switch/Switch';
-import { ThemeContext } from '@context';
-import React, { useContext } from 'react';
-import styled from 'styled-components';
+import { Link } from 'gatsby';
+import React from 'react';
+import styled, { useTheme } from 'styled-components';
 
 const StyledContainer = styled(Container)`
   > div {
@@ -22,15 +22,24 @@ const NavItems = styled.ul`
   list-style: none;
   display: flex;
   align-items: center;
+  * {
+    font-size: 16px;
+  }
 `;
 
-const NavItem = styled.a`
-  margin-right: 20px;
-  display: none;
-  cursor: pointer;
-  &:hover {
-    color: var(--color-hover);
+const NavItem = styled.li`
+  :not(:first-child) {
+    margin-left: 5px;
   }
+  > a {
+    padding: 8px 10px;
+    border-radius: 5px;
+
+    &:hover {
+      color: var(--color-hover);
+    }
+  }
+  cursor: pointer;
   @media screen and (min-width: 768px) {
     display: block;
   }
@@ -42,20 +51,27 @@ const Logo = styled.img`
 `;
 
 const Navbar = ({ blogUrl }) => {
-  const themeContext = useContext(ThemeContext);
-  const { theme, toggleTheme } = themeContext;
+  const { mode, toggleTheme } = useTheme();
   const logoSrc = require(`@components/atoms/Icon/icons/icon-logo.svg`);
   return (
     <StyledContainer>
       <Nav>
-        <Logo src={logoSrc} alt="icon-logo" />
+        <Link to="/">
+          <Logo src={logoSrc} alt="icon-logo" />
+        </Link>
         <NavItems>
-          <NavItem href="#projects">Projects</NavItem>
-          <NavItem href="#about-me">About Me</NavItem>
-          <NavItem href={blogUrl}>Blog</NavItem>
+          {/* <NavItem>
+            <Link to="/projects">Projects</Link>
+          </NavItem> */}
+          <NavItem>
+            <a href={blogUrl}>Blog</a>
+          </NavItem>
+          <NavItem>
+            <Link to="/about">About</Link>
+          </NavItem>
           <Switch
             onChange={(e) => toggleTheme(e.target.checked)}
-            checked={theme === 'dark'}
+            checked={mode === 'dark'}
           />
         </NavItems>
       </Nav>

@@ -53,7 +53,9 @@ const ProjectsSection = ({ ...props }) => {
 
   return (
     <StyledContainer {...props}>
-      <Heading as="h2">Projects</Heading>
+      <Heading size="h2" style={{ marginTop: 0 }}>
+        Projects
+      </Heading>
       <ProjectsGrid>
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />

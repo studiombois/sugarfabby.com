@@ -11,8 +11,6 @@
     "prettier"
   ],
   "globals": {
-    "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly",
     "require": "readonly",
     "process": "readonly",
     "__dirname": "readonly",

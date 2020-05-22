@@ -1,12 +1,22 @@
 import Navbar from '@components/organisms/Navbar/Navbar';
-import { ThemeContext } from '@context';
+import Footer from '@components/templates/Footer/Footer';
 import useDarkMode from '@hooks/useDarkMode';
-import 'circular-std';
+import GlobalStyles from '@lib/theme/GlobalStyles';
+import { theme } from '@lib/theme/theme';
+import { MDXProvider } from '@mdx-js/react';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import './styles.scss';
+import styled, { ThemeProvider } from 'styled-components';
+import mdxComponents from '../MDX/Mdx';
 
-const Layout = () => {
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+`;
+
+const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -17,18 +27,17 @@ const Layout = () => {
     }
   `);
   const { blogUrl } = data.site.siteMetadata;
-  const [theme, avatar, toggleTheme] = useDarkMode();
+  const [mode, avatar, toggleTheme] = useDarkMode();
 
-  // Todo: MDX Blog
   return (
-    <ThemeContext.Provider value={{ theme, avatar, toggleTheme }}>
-      <main className="App">
+    <ThemeProvider theme={{ mode, avatar, toggleTheme, ...theme }}>
+      <Main>
+        <GlobalStyles />
         <Navbar {...{ blogUrl }} />
-        {/* <MDXProvider components={mdxComponents}>
-          <Container>{children}</Container>
-        </MDXProvider> */}
-      </main>
-    </ThemeContext.Provider>
+        <MDXProvider components={mdxComponents}>{children}</MDXProvider>
+        <Footer />
+      </Main>
+    </ThemeProvider>
   );
 };
 

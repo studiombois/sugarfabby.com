@@ -1,20 +1,14 @@
-import { breakpoints } from '@lib/theme/GlobalStyles';
+import { theme } from '@lib/theme/theme';
 import React from 'react';
 import styled from 'styled-components';
 
 const headingSizes = {
-  sm: {
-    h1: 2.5,
-    h2: 2,
-    h3: 1.35,
-    h4: 1.15,
-  },
-  md: {
-    h1: 3.5,
-    h2: 2.5,
-    h3: 1.35,
-    h4: 1.15,
-  },
+  h1: theme.fontSizes.enormous,
+  h2: theme.fontSizes['extra-huge'],
+  h3: theme.fontSizes.huge,
+  h4: theme.fontSizes['extra-large'],
+  h5: theme.fontSizes.large,
+  h6: theme.fontSizes.default,
 };
 
 const getFontWeight = (h) => {
@@ -22,9 +16,9 @@ const getFontWeight = (h) => {
     case 'h1':
     case 'h2':
     case 'h3':
-      return 700;
     case 'h4':
-      return 500;
+    case 'h5':
+      return 700;
     default:
       return 500;
   }
@@ -32,20 +26,22 @@ const getFontWeight = (h) => {
 
 const StyledHeading = styled.h1`
   /* Default value */
-  font-size: ${headingSizes.sm.h1}rem;
+  font-size: ${({ size }) => size && `${headingSizes[size]}rem`};
   /* Override for other heading sizes */
-  font-size: ${({ as }) => as && `${headingSizes.sm[as]}rem`};
+  font-size: ${({ size }) => size && `${headingSizes[size]}rem`};
   /* Override for any font size */
   font-size: ${({ custom }) => custom && `${custom}rem`};
-  font-weight: ${({ as }) => getFontWeight(as)};
-  margin-bottom: 0.5em;
+  font-weight: ${({ size }) => getFontWeight(size)};
+  margin: 2.75rem 0 1.05rem;
   letter-spacing: -0.01rem;
+  a {
+    color: var(--color-primary);
+    font-weight: inherit;
+    font-size: inherit;
 
-  @media screen and (min-width: ${breakpoints.md}) {
-    /* Default value */
-    font-size: ${headingSizes.md.h1}rem;
-    /* Override for other heading sizes */
-    font-size: ${({ as }) => as && `${headingSizes.md[as]}rem`};
+    :hover {
+      text-decoration: underline;
+    }
   }
 `;
 

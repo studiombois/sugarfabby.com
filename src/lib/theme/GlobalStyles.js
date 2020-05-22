@@ -29,6 +29,7 @@ const GlobalStyles = createGlobalStyle`
     --color-background: var(--color-white);
     --color-background-dark: var(--color-grey-light);
     --color-background-footer: var(--color-primary);
+    --color-background-code: var(--color-darkMode-darker);
     --color-text: var(--color-darkMode);
     --color-text-footer: var(--color-white);
     --color-text-secondary: var(--color-grey-dark);
@@ -37,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
     --color-active: var(--color-primary-dark);
     --color-disabled: var(--color-grey);
 
-    --base-font-size: 16px;
+    --base-font-size: 18px;
   }
 
   [data-theme='dark'] {
@@ -73,6 +74,32 @@ const GlobalStyles = createGlobalStyle`
   a {
     text-decoration: none;
     color: inherit;
+  }
+
+  blockquote {
+    border-left: 5px solid var(--color-primary);
+    padding-left: 1rem !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    font-style: italic;
+    margin-bottom: 30px;
+  }
+
+  h1:hover .anchor svg, h2:hover .anchor svg, h3:hover .anchor svg, h4:hover .anchor svg, h5:hover .anchor svg, h6:hover .anchor svg, h1 .anchor:focus svg, h2 .anchor:focus svg, h3 .anchor:focus svg, h4 .anchor:focus svg, h5 .anchor:focus svg, h6 .anchor:focus svg {
+    opacity: 1
+  }
+
+  .anchor svg {
+    position: absolute;
+    left: -24px;
+    height: 100%;
+    fill: var(--color-primary);
+    opacity: 0;
+    transition: all 0.2s ease
+  }
+
+  pre, code {
+    font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 `;
 

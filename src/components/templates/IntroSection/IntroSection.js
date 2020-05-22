@@ -3,10 +3,10 @@ import Button from '@components/atoms/Button/Button';
 import Container from '@components/atoms/Container/Container';
 import Heading from '@components/atoms/Text/Heading';
 import Paragraph from '@components/atoms/Text/Paragraph';
-import { ThemeContext } from '@context';
 import { breakpoints } from '@lib/theme/GlobalStyles';
+import { useTheme } from '@lib/theme/theme';
 import { graphql, useStaticQuery } from 'gatsby';
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const StyledContainer = styled(Container)`
@@ -87,14 +87,13 @@ const IntroSection = () => {
       }
     }
   `);
-  const themeContext = useContext(ThemeContext);
-  const { avatar } = themeContext;
+  const { avatar } = useTheme();
   const { author, email, description } = data.site.siteMetadata;
   const { url: resumeUrl } = data.contentfulAsset.file;
   return (
     <StyledContainer>
       <Headline>
-        <Heading as="h1" style={{ marginBottom: 0 }}>
+        <Heading size="h1" style={{ margin: 0 }}>
           {author}
         </Heading>
         <Paragraph style={{ fontSize: '18px' }}>{description}</Paragraph>

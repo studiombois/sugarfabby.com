@@ -13,7 +13,7 @@ const StyledContainer = styled(Container)`
 const AboutMeSection = ({ ...props }) => {
   return (
     <StyledContainer {...props}>
-      <Heading as="h2">About Me</Heading>
+      <Heading size="h2">About Me</Heading>
       <Paragraph>
         My name is Fabian Lee. I am a software engineer from Hong Kong who likes
         doing design and front-end development. I believe our world needs more
