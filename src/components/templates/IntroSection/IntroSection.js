@@ -1,10 +1,10 @@
-import Box from '@components/atoms/Box/Box';
-import Button from '@components/atoms/Button/Button';
-import Container from '@components/atoms/Container/Container';
-import Heading from '@components/atoms/Text/Heading';
-import Paragraph from '@components/atoms/Text/Paragraph';
+import Box from '@components/elements/Box/Box';
+import Button from '@components/elements/Button/Button';
+import Container from '@components/elements/Container/Container';
+import Heading from '@components/elements/Text/Heading';
+import Paragraph from '@components/elements/Text/Paragraph';
+import { useTheme } from '@components/templates/ThemeProvider';
 import { breakpoints } from '@lib/theme/GlobalStyles';
-import { useTheme } from '@lib/theme/theme';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';

@@ -1,5 +1,5 @@
-import Container from '@components/atoms/Container/Container';
-import SEO from '@components/atoms/SEO/SEO';
+import Container from '@components/elements/Container/Container';
+import SEO from '@components/elements/SEO/SEO';
 import React from 'react';
 import styled from 'styled-components';
 

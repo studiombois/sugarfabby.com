@@ -1,6 +1,6 @@
-import Container from '@components/atoms/Container/Container';
-import Heading from '@components/atoms/Text/Heading';
-import Paragraph from '@components/atoms/Text/Paragraph';
+import Container from '@components/elements/Container/Container';
+import Heading from '@components/elements/Text/Heading';
+import Paragraph from '@components/elements/Text/Paragraph';
 import React from 'react';
 import styled from 'styled-components';
 

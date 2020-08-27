@@ -1,6 +1,6 @@
-import Container from '@components/atoms/Container/Container';
-import Heading from '@components/atoms/Text/Heading';
-import ProjectCard from '@components/organisms/ProjectCard/ProjectCard';
+import Container from '@components/elements/Container/Container';
+import Heading from '@components/elements/Text/Heading';
+import ProjectCard from '@components/modules/ProjectCard/ProjectCard';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
@@ -49,7 +49,7 @@ const ProjectsSection = ({ ...props }) => {
       }
     }
   `);
-  const projects = data.allContentfulProject.nodes;
+  const projects = data.allContentfulProject.nodes || [];
 
   return (
     <StyledContainer {...props}>

@@ -1,8 +1,9 @@
-import Container from '@components/atoms/Container/Container';
-import Switch from '@components/atoms/Switch/Switch';
+import Container from '@components/elements/Container/Container';
+import Switch from '@components/elements/Switch/Switch';
+import { useTheme } from '@components/templates/ThemeProvider';
 import { Link } from 'gatsby';
 import React from 'react';
-import styled, { useTheme } from 'styled-components';
+import styled from 'styled-components';
 
 const StyledContainer = styled(Container)`
   > div {
@@ -52,7 +53,7 @@ const Logo = styled.img`
 
 const Navbar = ({ blogUrl }) => {
   const { mode, toggleTheme } = useTheme();
-  const logoSrc = require(`@components/atoms/Icon/icons/icon-logo.svg`);
+  const logoSrc = require(`@components/elements/Icon/icons/icon-logo.svg`);
   return (
     <StyledContainer>
       <Nav>

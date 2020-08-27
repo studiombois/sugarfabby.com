@@ -1,6 +1,3 @@
-import { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
-
 const globalPalette = {
   primaryLighter: '#cee7fe',
   primaryLight: '#82c4fe',
@@ -17,11 +14,6 @@ const globalPalette = {
   darkPrimary: '#0b2038',
   darkPrimaryDark: '#001426',
   darkPrimaryDarker: '#000b14',
-};
-
-export const useTheme = () => {
-  const themeContext = useContext(ThemeContext);
-  return themeContext;
 };
 
 export const theme = {

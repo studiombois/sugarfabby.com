@@ -1,4 +1,4 @@
-import SEO from '@components/atoms/SEO/SEO';
+import SEO from '@components/elements/SEO/SEO';
 import ProjectsSection from '@components/templates/ProjectsSection/ProjectsSection';
 import React from 'react';
 

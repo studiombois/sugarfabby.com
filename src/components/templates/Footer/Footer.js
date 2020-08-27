@@ -1,6 +1,6 @@
-import Box from '@components/atoms/Box/Box';
-import Container from '@components/atoms/Container/Container';
-import Icon from '@components/atoms/Icon/Icon';
+import Box from '@components/elements/Box/Box';
+import Container from '@components/elements/Container/Container';
+import Icon from '@components/elements/Icon/Icon';
 import { breakpoints } from '@lib/theme/GlobalStyles';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
