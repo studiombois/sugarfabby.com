@@ -30,10 +30,10 @@
     "gatsby-plugin-styled-components": "^3.3.5",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-autolink-headers": "^2.3.7",
+    "gatsby-remark-images": "^3.3.8",
     "gatsby-remark-vscode": "^2.1.1",
     "gatsby-source-contentful": "^2.3.37",
     "gatsby-source-filesystem": "^2.3.24",
-    "gatsby-transformer-remark": "^2.8.13",
     "gatsby-transformer-sharp": "^2.5.7",
     "overnight": "^1.7.3",
     "react": "^16.13.1",
@@ -48,7 +48,7 @@
     "eslint-plugin-react": "^7.20.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.10",
-    "prettier": "^2.0.4"
+    "prettier": "^2.1.1"
   },
   "husky": {
     "hooks": {
@@ -60,8 +60,7 @@
   "lint-staged": {
     "src/**/*.{js,jsx}": [
       "prettier --write",
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "repository": {

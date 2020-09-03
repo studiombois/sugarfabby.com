@@ -33,9 +33,7 @@ const ProjectCard = ({ project }) => {
     demoLink,
     sourceLink,
     techUsed,
-    description: {
-      childMarkdownRemark: { excerpt },
-    },
+    description: { excerpt },
     screenshot: { fluid },
   } = project;
 

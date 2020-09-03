@@ -36,9 +36,7 @@ const ProjectsSection = ({ ...props }) => {
           sourceLink
           techUsed
           description {
-            childMarkdownRemark {
-              excerpt
-            }
+            excerpt: description
           }
           screenshot {
             fluid(maxWidth: 700) {

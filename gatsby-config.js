@@ -22,10 +22,31 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-remark`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-styled-components`,
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Inter:100,200,300,400,500,600,700,800'],
+        },
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS,
+        head: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
@@ -36,20 +57,6 @@ module.exports = {
           '@lib': `${__dirname}/src/lib`,
         },
         extensions: ['js'],
-      },
-    },
-    // {
-    //   resolve: `gatsby-source-filesystem`,
-    //   options: {
-    //     path: `${__dirname}/src/pages/blog`,
-    //     name: `blog`,
-    //   },
-    // },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src`,
-        name: `src`,
       },
     },
     {
@@ -78,29 +85,30 @@ module.exports = {
               extensions: [`overnight`],
             },
           },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 923,
+            },
+          },
         ],
       },
     },
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        google: {
-          families: ['Inter:100,200,300,400,500,600,700,800'],
-        },
+        path: `${__dirname}/src/pages/blog`,
+        name: `blog`,
       },
     },
     {
-      resolve: `gatsby-source-contentful`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS,
-        head: true,
+        path: `${__dirname}/src`,
+        name: `src`,
       },
     },
   ],
