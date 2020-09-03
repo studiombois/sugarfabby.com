@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 
 const useDarkMode = () => {
   const [mode, setMode] = useState(null);
   const [avatar, setAvatar] = useState(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof window !== 'undefined' && window.__theme) {
       setMode(mode || window.__theme);
       setAvatar(window.__avatar);

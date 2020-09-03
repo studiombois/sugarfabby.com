@@ -69,6 +69,7 @@ const GlobalStyles = createGlobalStyle`
       'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
     color: var(--color-text);
     scroll-behavior: smooth;
+    background: var(--color-background);
   }
 
   a {
