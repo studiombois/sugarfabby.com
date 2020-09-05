@@ -5,16 +5,11 @@ import { Helmet } from 'react-helmet';
 const MyHelmet = ({
   siteMetadata: seo,
   contentfulAsset,
-  postData,
   // metaImage,
   isBlogPost,
-  frontmatter: postMeta = (postData &&
-    postData.childMarkdownRemark.frontmatter) ||
-    {},
+  frontmatter: postMeta = postMeta || {},
   title = postMeta.title || seo.title,
-  description = postMeta.plainTextDescription ||
-    postMeta.description ||
-    seo.description,
+  description = postMeta.description || seo.description,
   image = contentfulAsset.file.url,
   url = postMeta.slug ? `${seo.siteUrl}${postMeta.slug}` : seo.siteUrl,
   // datePublished = isBlogPost ? postMeta.datePublished : false,
@@ -56,7 +51,6 @@ const SEO = (props) => {
           author
           description
           siteUrl
-          blogUrl
         }
       }
       contentfulAsset(title: { eq: "fabian-portfolio-open-graph" }) {
