@@ -7,11 +7,13 @@ const MyHelmet = ({
   contentfulAsset,
   // metaImage,
   isBlogPost,
-  frontmatter: postMeta = postMeta || {},
-  title = postMeta.title || seo.title,
-  description = postMeta.description || seo.description,
+  frontmatter: postMeta,
+  title = (postMeta && postMeta.title) || seo.title,
+  description = (postMeta && postMeta.description) || seo.description,
   image = contentfulAsset.file.url,
-  url = postMeta.slug ? `${seo.siteUrl}${postMeta.slug}` : seo.siteUrl,
+  url = postMeta && postMeta.slug
+    ? `${seo.siteUrl}${postMeta.slug}`
+    : seo.siteUrl,
   // datePublished = isBlogPost ? postMeta.datePublished : false,
 }) => {
   return (
