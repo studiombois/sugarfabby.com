@@ -10,9 +10,9 @@ const GlobalStyles = createGlobalStyle`
   :root {
     --color-darkMode-lighter: #cee7fe;
     --color-darkMode-light: #6d93b3;
-    --color-darkMode: #0b2038;
-    --color-darkMode-dark: #001426;
-    --color-darkMode-darker: #000b14;
+    --color-darkMode: #0e182a;
+    --color-darkMode-dark: #0B101A;
+    --color-darkMode-darker: #000000;
 
     --color-primary-lighter: #cee7fe;
     --color-primary-light: #82c4fe;
@@ -22,9 +22,11 @@ const GlobalStyles = createGlobalStyle`
 
     --color-white: #ffffff;
     --color-grey-light: #f9f9f9;
+    --color-grey-lighter: #f7fafc;
     --color-grey: #dcdcdc;
     --color-grey-dark: #a7a7a7;
     --color-grey-darker: #6b6b6b;
+
 
     --color-background: var(--color-white);
     --color-background-dark: var(--color-grey-light);
@@ -33,11 +35,12 @@ const GlobalStyles = createGlobalStyle`
     --color-text: var(--color-darkMode);
     --color-text-footer: var(--color-white);
     --color-text-secondary: var(--color-grey-dark);
-    --color-text-disabled: var(--color-grey-light);
+    --color-text-disabled: var(--color-white);
     --color-hover: var(--color-primary-light);
     --color-active: var(--color-primary-dark);
     --color-disabled: var(--color-grey);
 
+    --box-shadow: rgba(0, 0, 0, 0.016) 0px 0.8px 2.2px -2px, rgba(0, 0, 0, 0.02) 0px 1.9px 5.3px -2px, rgba(0, 0, 0, 0.024) 0px 3.6px 10px -2px, rgba(0, 0, 0, 0.03) 0px 6.5px 17.9px -2px;
     --base-font-size: 18px;
   }
 
@@ -45,13 +48,15 @@ const GlobalStyles = createGlobalStyle`
     --color-background: var(--color-darkMode);
     --color-background-dark: var(--color-darkMode-dark);
     --color-background-footer: var(--color-darkMode-darker);
-    --color-text: var(--color-primary-lighter);
+    --color-text: var(--color-grey-lighter);
     --color-text-footer: var(--color-primary-lighter);
     --color-text-secondary: var(--color-darkMode-light);
     --color-text-disabled: var(--color-darkMode-light);
     --color-hover: var(--color-primary-light);
     --color-active: var(--color-primary-dark);
     --color-disabled: var(--color-darkMode-dark);
+
+    --box-shadow: rgba(0, 0, 0, 0.082) 0px 0.8px 2.2px -2px, rgba(0, 0, 0, 0.12) 0px 1.9px 5.3px -2px, rgba(0, 0, 0, 0.15) 0px 3.6px 10px -2px, rgba(0, 0, 0, 0.18) 0px 6.5px 17.9px -2px;
   }
 
   * {

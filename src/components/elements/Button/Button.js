@@ -17,10 +17,8 @@ const filledStyle = css`
 `;
 
 const disabledStyle = css`
-  color: var(--color-text-disabled);
-  border: 1px solid var(--color-disabled);
   pointer-events: none;
-  ${({ fill }) => fill && 'background: var(--color-disabled)'}
+  opacity: 0.3;
 `;
 
 const StyledButton = styled.button`
@@ -48,21 +46,23 @@ const StyledButton = styled.button`
     background: var(--color-active);
   }
 
-  ${({ fill }) => fill && filledStyle}
+  ${({ isFill }) => isFill && filledStyle}
   ${({ disabled }) => disabled && disabledStyle}
 `;
 
-const Button = ({ children, onClick, fill, link, disabled, target }) => {
+const Button = ({ children, onClick, isFill, link, disabled, target }) => {
   if (link) {
     return (
       <a href={link} target={target} rel="nofollow noopener noreferrer">
-        <StyledButton {...{ onClick, fill, disabled }}>{children}</StyledButton>
+        <StyledButton {...{ onClick, isFill, disabled }}>
+          {children}
+        </StyledButton>
       </a>
     );
   }
 
   return (
-    <StyledButton {...{ onClick, fill, disabled }}>{children}</StyledButton>
+    <StyledButton {...{ onClick, isFill, disabled }}>{children}</StyledButton>
   );
 };
 
