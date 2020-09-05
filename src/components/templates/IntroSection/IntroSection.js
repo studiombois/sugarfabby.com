@@ -1,6 +1,7 @@
 import Box from '@components/elements/Box/Box';
 import Button from '@components/elements/Button/Button';
 import Container from '@components/elements/Container/Container';
+import Loading from '@components/elements/Loading/Loading';
 import Heading from '@components/elements/Text/Heading';
 import Paragraph from '@components/elements/Text/Paragraph';
 import { useTheme } from '@components/templates/ThemeProvider';
@@ -91,7 +92,7 @@ const IntroSection = () => {
   const { author, email, description } = data.site.siteMetadata;
   const { url: resumeUrl } = data.contentfulAsset.file;
   return (
-    <StyledContainer>
+    <StyledContainer isTopSection>
       <Headline>
         <Heading size="h1" style={{ margin: 0 }}>
           {author}
@@ -102,12 +103,12 @@ const IntroSection = () => {
             Email Me
           </Button>
           <Box mr="10px" />
-          <Button link={resumeUrl} fill>
+          <Button link={resumeUrl} isFill>
             View Resume
           </Button>
         </Buttons>
       </Headline>
-      {avatar ? <Avatar src={avatar} alt="fabian-avatar" /> : null}
+      {avatar ? <Avatar src={avatar} alt="fabian-avatar" /> : <Loading />}
     </StyledContainer>
   );
 };

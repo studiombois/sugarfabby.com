@@ -18,7 +18,7 @@ const MarkdownPage = ({ children, pageContext }) => {
     <>
       <SEO frontmatter={pageContext.frontmatter} />
       <Navbar />
-      <StyleContainer>{children}</StyleContainer>
+      <StyleContainer isTopSection>{children}</StyleContainer>
       <Footer />
     </>
   );

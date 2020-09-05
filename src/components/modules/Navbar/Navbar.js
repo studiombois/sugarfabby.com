@@ -1,15 +1,25 @@
 import Container from '@components/elements/Container/Container';
 import Switch from '@components/elements/Switch/Switch';
 import { useTheme } from '@components/templates/ThemeProvider';
+import debounce from '@lib/utils/debounce';
 import { Link } from 'gatsby';
 import React from 'react';
+import { CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
+import { navbarPadding } from './utils';
 
 const StyledContainer = styled(Container)`
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+
   > div {
     max-width: 1440px;
     padding: 20px;
   }
+
+  ${navbarPadding}
 `;
 
 const Nav = styled.nav`
@@ -47,36 +57,61 @@ const NavItem = styled.li`
 `;
 
 const Logo = styled.img`
-  width: 60px;
+  width: 50px;
   height: 100%;
+  transition: width 100ms ease-out;
+
+  @media screen and (min-width: 768px) {
+    width: 60px;
+  }
 `;
 
-const Navbar = ({ blogUrl }) => {
+const logoSrc = require(`@components/elements/Icon/icons/icon-logo.svg`);
+
+const Navbar = () => {
   const { mode, toggleTheme } = useTheme();
-  const logoSrc = require(`@components/elements/Icon/icons/icon-logo.svg`);
+  const [inProp, setInProp] = React.useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 0 && !inProp) {
+      setInProp(true);
+    } else if (window.scrollY === 0 && inProp) {
+      setInProp(false);
+    }
+  };
+
+  React.useLayoutEffect(() => {
+    if (typeof window !== undefined) {
+      window.addEventListener('scroll', debounce(handleScroll));
+    }
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [inProp]);
+
   return (
-    <StyledContainer>
-      <Nav>
-        <Link to="/">
-          <Logo src={logoSrc} alt="icon-logo" />
-        </Link>
-        <NavItems>
-          {/* <NavItem>
+    <CSSTransition in={inProp} timeout={200} classNames="alert" appear>
+      <StyledContainer>
+        <Nav>
+          <Link to="/">
+            <Logo src={logoSrc} alt="icon-logo" />
+          </Link>
+          <NavItems>
+            {/* <NavItem>
             <Link to="/projects">Projects</Link>
           </NavItem> */}
-          <NavItem>
-            <a href={blogUrl}>Blog</a>
-          </NavItem>
-          <NavItem>
-            <Link to="/about">About</Link>
-          </NavItem>
-          <Switch
-            onChange={(e) => toggleTheme(e.target.checked)}
-            checked={mode === 'dark'}
-          />
-        </NavItems>
-      </Nav>
-    </StyledContainer>
+            {/* <NavItem>
+              <Link to="/blog">Blog</Link>
+            </NavItem> */}
+            <NavItem>
+              <Link to="/about">About</Link>
+            </NavItem>
+            <Switch
+              onChange={(e) => toggleTheme(e.target.checked)}
+              checked={mode === 'dark'}
+            />
+          </NavItems>
+        </Nav>
+      </StyledContainer>
+    </CSSTransition>
   );
 };
 
