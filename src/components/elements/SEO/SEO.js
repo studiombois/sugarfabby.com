@@ -11,8 +11,9 @@ const MyHelmet = ({
   title = (postMeta && postMeta.title) || seo.title,
   description = (postMeta && postMeta.description) || seo.description,
   image = contentfulAsset.file.url,
+  // Todo: dynamic url
   url = postMeta && postMeta.slug
-    ? `${seo.siteUrl}${postMeta.slug}`
+    ? `${seo.siteUrl}/blog/${postMeta.slug}`
     : seo.siteUrl,
   // datePublished = isBlogPost ? postMeta.datePublished : false,
 }) => {
