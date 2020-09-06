@@ -1,3 +1,4 @@
+import Video from '@components/elements/Video/Video';
 import ThemeProvider from '@components/templates/ThemeProvider';
 import GlobalStyles from '@lib/theme/GlobalStyles';
 import { MDXProvider } from '@mdx-js/react';
@@ -12,12 +13,16 @@ const Main = styled.main`
   min-height: 100vh;
 `;
 
+const customComponents = { Video };
+
 const Layout = ({ children }) => {
   return (
     <ThemeProvider>
       <Main>
         <GlobalStyles />
-        <MDXProvider components={mdxComponents}>{children}</MDXProvider>
+        <MDXProvider components={{ ...mdxComponents, ...customComponents }}>
+          {children}
+        </MDXProvider>
       </Main>
     </ThemeProvider>
   );

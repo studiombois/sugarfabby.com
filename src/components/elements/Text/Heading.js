@@ -33,6 +33,7 @@ const StyledHeading = styled.h1`
   font-size: ${({ custom }) => custom && `${custom}rem`};
   font-weight: ${({ size }) => getFontWeight(size)};
   margin: 2.75rem 0 1.05rem;
+  line-height: 1.2;
   letter-spacing: -0.01rem;
   a {
     color: var(--color-primary);
