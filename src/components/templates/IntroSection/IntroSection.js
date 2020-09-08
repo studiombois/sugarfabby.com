@@ -5,7 +5,7 @@ import Loading from '@components/elements/Loading/Loading';
 import Heading from '@components/elements/Text/Heading';
 import Paragraph from '@components/elements/Text/Paragraph';
 import { useTheme } from '@components/templates/ThemeProvider';
-import { breakpoints } from '@lib/theme/GlobalStyles';
+import { breakpoints } from '@lib/theme/theme';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled, { css } from 'styled-components';
@@ -31,15 +31,15 @@ const StyledContainer = styled(Container)`
 
     @media screen and (min-width: ${breakpoints.sm}) {
       flex-direction: row;
-      max-width: 768px;
+      max-width: ${breakpoints.sm};
     }
 
     @media screen and (min-width: ${breakpoints.md}) {
-      max-width: 992px;
+      max-width: ${breakpoints.md};
     }
 
     @media screen and (min-width: ${breakpoints.lg}) {
-      max-width: 1200px;
+      max-width: ${breakpoints.lg};
     }
   }
 `;

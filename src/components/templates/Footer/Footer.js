@@ -1,7 +1,7 @@
 import Box from '@components/elements/Box/Box';
 import Container from '@components/elements/Container/Container';
 import Icon from '@components/elements/Icon/Icon';
-import { breakpoints } from '@lib/theme/GlobalStyles';
+import { breakpoints } from '@lib/theme/theme';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';

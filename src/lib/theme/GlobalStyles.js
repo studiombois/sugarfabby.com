@@ -1,11 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const breakpoints = {
-  sm: '768px',
-  md: '992px',
-  lg: '1200px',
-};
-
 const GlobalStyles = createGlobalStyle`
   :root {
     --color-darkMode-lighter: #cee7fe;
