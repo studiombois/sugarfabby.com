@@ -13,6 +13,7 @@ const StyledContainer = styled(Container)`
   top: 0;
   z-index: 99;
   width: 100%;
+  background: var(--color-navbar-background);
 
   > div {
     max-width: 1440px;
@@ -26,7 +27,6 @@ const Nav = styled.nav`
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
-  background: var(--color-background);
 `;
 
 const NavItems = styled.ul`
@@ -39,9 +39,8 @@ const NavItems = styled.ul`
 `;
 
 const NavItem = styled.li`
-  :not(:first-child) {
-    margin-left: 5px;
-  }
+  margin: 0 5px;
+
   > a {
     padding: 8px 10px;
     border-radius: 5px;
@@ -73,9 +72,9 @@ const Navbar = () => {
   const [inProp, setInProp] = React.useState(false);
 
   const handleScroll = () => {
-    if (window.scrollY > 0 && !inProp) {
+    if (window.scrollY > 0) {
       setInProp(true);
-    } else if (window.scrollY === 0 && inProp) {
+    } else if (window.scrollY === 0) {
       setInProp(false);
     }
   };

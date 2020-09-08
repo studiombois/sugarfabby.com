@@ -41,6 +41,7 @@ const GlobalStyles = createGlobalStyle`
     --color-disabled: var(--color-grey);
 
     --box-shadow: rgba(0, 0, 0, 0.016) 0px 0.8px 2.2px -2px, rgba(0, 0, 0, 0.02) 0px 1.9px 5.3px -2px, rgba(0, 0, 0, 0.024) 0px 3.6px 10px -2px, rgba(0, 0, 0, 0.03) 0px 6.5px 17.9px -2px;
+    --color-navbar-background: rgba(255, 255, 255, 0.9) none repeat scroll 0% 0%;
     --base-font-size: 18px;
   }
 
@@ -55,6 +56,7 @@ const GlobalStyles = createGlobalStyle`
     --color-hover: var(--color-primary-light);
     --color-active: var(--color-primary-dark);
     --color-disabled: var(--color-darkMode-dark);
+    --color-navbar-background: rgba(14, 24, 42, 0.9) none repeat scroll 0% 0%;
 
     --box-shadow: rgba(0, 0, 0, 0.082) 0px 0.8px 2.2px -2px, rgba(0, 0, 0, 0.12) 0px 1.9px 5.3px -2px, rgba(0, 0, 0, 0.15) 0px 3.6px 10px -2px, rgba(0, 0, 0, 0.18) 0px 6.5px 17.9px -2px;
   }
