@@ -5,12 +5,13 @@ import { Helmet } from 'react-helmet';
 const MyHelmet = ({
   siteMetadata: seo,
   contentfulAsset,
-  // metaImage,
+  metaImage,
   isBlogPost,
   frontmatter: postMeta,
   title = (postMeta && postMeta.title) || seo.title,
   description = (postMeta && postMeta.description) || seo.description,
-  image = contentfulAsset.file.url,
+  image = (metaImage && `${seo.siteUrl}${metaImage}`) ||
+    contentfulAsset.file.url,
   // Todo: dynamic url
   url = postMeta && postMeta.slug
     ? `${seo.siteUrl}/blog/${postMeta.slug}`

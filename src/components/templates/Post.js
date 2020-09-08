@@ -55,7 +55,11 @@ const Post = ({ data: { mdx } }) => {
 
   return (
     <>
-      <SEO frontmatter={frontmatter} isBlogPost />
+      <SEO
+        frontmatter={frontmatter}
+        metaImage={banner.childImageSharp.fluid.src}
+        isBlogPost
+      />
       <Navbar />
       <StyleContainer isTopSection>
         <Box flexDirection="column" mb="30px">
