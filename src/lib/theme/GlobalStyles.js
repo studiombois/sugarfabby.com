@@ -25,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
     --color-background: var(--color-white);
     --color-background-dark: var(--color-grey-light);
     --color-background-footer: var(--color-primary);
-    --color-background-code: var(--color-darkMode-darker);
+    --color-background-code: var(--color-darkMode-dark);
     --color-text: var(--color-darkMode);
     --color-text-footer: var(--color-white);
     --color-text-secondary: var(--color-grey-dark);
@@ -94,6 +94,17 @@ const GlobalStyles = createGlobalStyle`
 
   pre, code {
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  }
+
+  /* Adjust code highlight line numbers position, depending on the containers' padding */
+  .gatsby-highlight .line-numbers-rows {
+    padding: 25px 0 25px 1em;
+    border-right: none;
+
+    span::before {
+      color: white;
+      opacity: 0.2;
+    }
   }
 `;
 

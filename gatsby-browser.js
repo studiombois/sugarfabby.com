@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 const React = require('react');
 const Layout = require('./src/components/elements/Layout/Layout').default;
+require('prismjs/plugins/line-numbers/prism-line-numbers.css');
 
 exports.wrapPageElement = ({ element, props }) => (
   // props provide same data to Layout as Page element will get
