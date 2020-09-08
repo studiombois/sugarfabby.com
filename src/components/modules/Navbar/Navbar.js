@@ -1,5 +1,5 @@
 import Container from '@components/elements/Container/Container';
-import Switch from '@components/elements/Switch/Switch';
+import NewSwitch from '@components/elements/Switch/NewSwitch';
 import { useTheme } from '@components/templates/ThemeProvider';
 import debounce from '@lib/utils/debounce';
 import { Link } from 'gatsby';
@@ -13,7 +13,6 @@ const StyledContainer = styled(Container)`
   top: 0;
   z-index: 99;
   width: 100%;
-  background: var(--color-navbar-background);
 
   > div {
     max-width: 1440px;
@@ -35,6 +34,10 @@ const NavItems = styled.ul`
   align-items: center;
   * {
     font-size: 16px;
+  }
+
+  > :last-child {
+    margin-left: 20px;
   }
 `;
 
@@ -103,7 +106,7 @@ const Navbar = () => {
             <NavItem>
               <Link to="/about">About</Link>
             </NavItem>
-            <Switch
+            <NewSwitch
               onChange={(e) => toggleTheme(e.target.checked)}
               checked={mode === 'dark'}
             />
