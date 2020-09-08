@@ -8,7 +8,17 @@ import { useTheme } from '@components/templates/ThemeProvider';
 import { breakpoints } from '@lib/theme/GlobalStyles';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const avatarWrapper = css`
+  width: 335px;
+  height: 198px;
+
+  @media screen and (min-width: ${breakpoints.md}) {
+    width: 534px;
+    height: 315px;
+  }
+`;
 
 const StyledContainer = styled(Container)`
   > div {
@@ -52,14 +62,8 @@ const Headline = styled.div`
 `;
 
 const Avatar = styled.img`
-  width: 335px;
-  height: 198px;
   animation: fadeIn 0.5s ease-in-out;
-
-  @media screen and (min-width: ${breakpoints.md}) {
-    width: 534px;
-    height: 315px;
-  }
+  ${avatarWrapper}
 
   @keyframes fadeIn {
     from {
@@ -69,6 +73,10 @@ const Avatar = styled.img`
       opacity: 1;
     }
   }
+`;
+
+const Wrapper = styled(Box)`
+  ${avatarWrapper}
 `;
 
 const IntroSection = () => {
@@ -94,7 +102,7 @@ const IntroSection = () => {
   return (
     <StyledContainer isTopSection>
       <Headline>
-        <Heading size="h1" style={{ margin: 0 }}>
+        <Heading size="h1" style={{ margin: '0 0 10px' }}>
           {author}
         </Heading>
         <Paragraph style={{ fontSize: '18px' }}>{description}</Paragraph>
@@ -108,7 +116,13 @@ const IntroSection = () => {
           </Button>
         </Buttons>
       </Headline>
-      {avatar ? <Avatar src={avatar} alt="fabian-avatar" /> : <Loading />}
+      {avatar ? (
+        <Avatar src={avatar} alt="fabian-avatar" />
+      ) : (
+        <Wrapper>
+          <Loading />
+        </Wrapper>
+      )}
     </StyledContainer>
   );
 };
