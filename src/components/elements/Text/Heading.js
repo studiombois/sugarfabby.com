@@ -24,6 +24,18 @@ const getFontWeight = (h) => {
   }
 };
 
+const getLineHeight = (h) => {
+  switch (h) {
+    case 'h1':
+    case 'h2':
+    case 'h3':
+    case 'h4':
+      return 1.2;
+    default:
+      return '1.5em';
+  }
+};
+
 const StyledHeading = styled.h1`
   /* Default value */
   font-size: ${({ size }) => size && `${headingSizes[size]}rem`};
@@ -33,7 +45,7 @@ const StyledHeading = styled.h1`
   font-size: ${({ custom }) => custom && `${custom}rem`};
   font-weight: ${({ size }) => getFontWeight(size)};
   margin: 2.75rem 0 1.05rem;
-  line-height: 1.2;
+  line-height: ${({ size }) => getLineHeight(size)};
   letter-spacing: -0.01rem;
   a {
     color: var(--color-primary);

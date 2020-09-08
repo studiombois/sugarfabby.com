@@ -87,7 +87,7 @@ const Footer = () => {
       }
     }
   `);
-  const { socialMedia, blogUrl } = data.site.siteMetadata;
+  const { socialMedia } = data.site.siteMetadata;
   const year = new Date().getFullYear();
 
   const scrollToTop = () => {
@@ -119,7 +119,7 @@ const Footer = () => {
           ))}
         </SocialMediaButtonsBox>
         <Links>
-          <a href={blogUrl}>Blog</a>
+          {/* <a href={blogUrl}>Blog</a> */}
           <Link to="/about">About</Link>
           <p id="scroll-to-top" onClick={scrollToTop}>
             Back To Top

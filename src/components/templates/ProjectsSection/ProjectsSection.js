@@ -51,7 +51,7 @@ const ProjectsSection = ({ ...props }) => {
 
   return (
     <StyledContainer {...props}>
-      <Heading size="h2" style={{ marginTop: 0 }}>
+      <Heading size="h2" style={{ marginTop: 0, marginBottom: '30px' }}>
         Projects
       </Heading>
       <ProjectsGrid>
