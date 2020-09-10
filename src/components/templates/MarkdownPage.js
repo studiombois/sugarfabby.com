@@ -5,7 +5,7 @@ import Footer from '@components/templates/Footer/Footer';
 import React from 'react';
 import styled from 'styled-components';
 
-const StyleContainer = styled(Container)`
+const PageContainer = styled(Container)`
   flex: 1 0 auto;
   > div {
     max-width: 768px;
@@ -18,7 +18,7 @@ const MarkdownPage = ({ children, pageContext }) => {
     <>
       <SEO frontmatter={pageContext.frontmatter} />
       <Navbar />
-      <StyleContainer isTopSection>{children}</StyleContainer>
+      <PageContainer isTopSection>{children}</PageContainer>
       <Footer />
     </>
   );

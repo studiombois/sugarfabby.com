@@ -12,9 +12,8 @@ const MyHelmet = ({
   description = (postMeta && postMeta.description) || seo.description,
   image = (metaImage && `${seo.siteUrl}${metaImage}`) ||
     contentfulAsset.file.url,
-  // Todo: dynamic url
   url = postMeta && postMeta.slug
-    ? `${seo.siteUrl}/blog/${postMeta.slug}`
+    ? `${seo.siteUrl}${postMeta.slug}`
     : seo.siteUrl,
   // datePublished = isBlogPost ? postMeta.datePublished : false,
 }) => {
@@ -35,7 +34,10 @@ const MyHelmet = ({
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={'@fabiannnlee'} />
+      <meta
+        name="twitter:creator"
+        content={seo.socialMedia.find((s) => s.platform === 'twitter').id}
+      />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
@@ -55,6 +57,10 @@ const SEO = (props) => {
           author
           description
           siteUrl
+          socialMedia {
+            id
+            platform
+          }
         }
       }
       contentfulAsset(title: { eq: "fabian-portfolio-open-graph" }) {

@@ -82,7 +82,6 @@ const Footer = () => {
             link
             platform
           }
-          blogUrl
         }
       }
     }
@@ -119,7 +118,6 @@ const Footer = () => {
           ))}
         </SocialMediaButtonsBox>
         <Links>
-          {/* <a href={blogUrl}>Blog</a> */}
           <Link to="/about">About</Link>
           <p id="scroll-to-top" onClick={scrollToTop}>
             Back To Top

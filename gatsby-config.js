@@ -6,14 +6,17 @@ module.exports = {
     description:
       'Software Engineer from Hong Kong with focus on Front-end Development and Human-centered Design.',
     siteUrl: 'https://sugarfabby.com/',
-    blogUrl: 'https://blog.sugarfabby.com/',
     socialMedia: [
       { link: 'https://github.com/fabianlee1211', platform: 'github' },
       {
         link: 'https://www.linkedin.com/in/fabiannnlee/',
         platform: 'linkedin',
       },
-      { link: 'https://twitter.com/fabiannnlee', platform: 'twitter' },
+      {
+        link: 'https://twitter.com/fabiannnlee',
+        platform: 'twitter',
+        id: '@fabiannnlee',
+      },
       { link: 'https://www.behance.net/fabianlee', platform: 'behance' },
       { link: 'https://medium.com/@fabianlee', platform: 'medium' },
     ],

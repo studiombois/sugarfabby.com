@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 const path = require('path');
 
-function createBlogPages({ data, actions, blogPath }) {
+function createBlogPages({ data, actions }) {
   if (!data.edges.length) {
     throw new Error('There are no posts!');
   }
@@ -13,7 +13,7 @@ function createBlogPages({ data, actions, blogPath }) {
     // Gets the previous and next blog post
     const prev = i === 0 ? null : edges[i - 1].node;
     const next = i === edges.length - 1 ? null : edges[i + 1].node;
-    const pagePath = `${blogPath}/${node.frontmatter.slug}`;
+    const pagePath = node.fields.slug;
 
     createPage({
       path: pagePath,
@@ -41,7 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             id
-            frontmatter {
+            fields {
               slug
             }
           }
@@ -57,6 +57,39 @@ exports.createPages = async ({ graphql, actions }) => {
   const { blog } = data;
 
   createBlogPages({ blogPath: '/blog', data: blog, actions });
+};
+
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const parentNode = getNode(node.parent);
+  const { createNodeField } = actions;
+
+  if (
+    node.internal.type === `Mdx` &&
+    parentNode.sourceInstanceName === 'blog'
+  ) {
+    let slug = node.frontmatter.slug;
+    // Windows system uses backlashes for directory names
+    const parsedDirPath = __dirname.replace(/\\/g, '/');
+
+    if (node.fileAbsolutePath.includes('content/blog/')) {
+      slug = `/blog/${node.frontmatter.slug}`;
+    }
+
+    createNodeField({
+      name: 'slug',
+      node,
+      value: slug,
+    });
+
+    createNodeField({
+      name: 'editLink',
+      node,
+      value: `https://github.com/fabianlee1211/sugarfabby.com/edit/master${node.fileAbsolutePath.replace(
+        parsedDirPath,
+        '',
+      )}`,
+    });
+  }
 };
 
 // exports.createPages = ({ graphql, actions }) => {

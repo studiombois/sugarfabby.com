@@ -12,7 +12,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
 import styled from 'styled-components';
 
-const StyleContainer = styled(Container)`
+const PostContainer = styled(Container)`
   flex: 1 0 auto;
   > div {
     max-width: 768px;
@@ -42,7 +42,8 @@ const Tag = styled(Text)`
 `;
 
 const Post = ({ data: { mdx } }) => {
-  const { body, frontmatter } = mdx;
+  const { body, frontmatter, fields } = mdx;
+  const { slug } = fields;
   const {
     title,
     description,
@@ -56,12 +57,12 @@ const Post = ({ data: { mdx } }) => {
   return (
     <>
       <SEO
-        frontmatter={frontmatter}
+        frontmatter={{ ...frontmatter, slug }}
         metaImage={banner.childImageSharp.fluid.src}
         isBlogPost
       />
       <Navbar />
-      <StyleContainer isTopSection>
+      <PostContainer isTopSection>
         <Box flexDirection="column" mb="30px">
           <Tag size="small">
             <span>{category}</span>
@@ -93,7 +94,7 @@ const Post = ({ data: { mdx } }) => {
         {/* <Heading size="h4" style={{ textAlign: 'center' }}>
           Share This Article With Your Friends
         </Heading> */}
-      </StyleContainer>
+      </PostContainer>
       <Footer />
     </>
   );
@@ -104,12 +105,15 @@ export const pageQuery = graphql`
   query($id: String!) {
     mdx(id: { eq: $id }) {
       body
+      fields {
+        slug
+        editLink
+      }
       frontmatter {
         title
         date
         description
         author
-        slug
         bannerCredit
         bannerLink
         category
