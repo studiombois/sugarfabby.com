@@ -1,5 +1,6 @@
 import Box from '@components/elements/Box/Box';
 import Container from '@components/elements/Container/Container';
+import Arrow from '@components/elements/Icon/Arrow';
 import Link from '@components/elements/MDX/Link';
 import SEO from '@components/elements/SEO/SEO';
 import Heading from '@components/elements/Text/Heading';
@@ -41,7 +42,28 @@ const Tag = styled(Text)`
   }
 `;
 
-const Post = ({ data: { mdx } }) => {
+const GoToPost = styled(Box)`
+  background: var(--color-background-dark);
+  padding: 20px;
+  margin-right: 15px;
+  flex-direction: column;
+  border-radius: 10px;
+
+  :last-child {
+    margin: 0;
+  }
+`;
+
+const GoToPostContainer = styled(Box)`
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+`;
+
+const Post = ({ data: { mdx }, pageContext }) => {
+  const { next, prev } = pageContext;
   const { body, frontmatter, fields } = mdx;
   const { slug } = fields;
   const {
@@ -91,9 +113,33 @@ const Post = ({ data: { mdx } }) => {
           </Box>
         )}
         <MDXRenderer>{body}</MDXRenderer>
-        {/* <Heading size="h4" style={{ textAlign: 'center' }}>
-          Share This Article With Your Friends
-        </Heading> */}
+        <GoToPostContainer justifyContent="space-between">
+          {prev && (
+            <GoToPost>
+              <Box alignItems="center">
+                <Arrow type="left" />
+                <Text>Previous</Text>
+              </Box>
+              <Link style={{ fontWeight: 'bold' }} to={prev.fields.slug}>
+                {prev.frontmatter.title}
+              </Link>
+            </GoToPost>
+          )}
+          {next && (
+            <GoToPost>
+              <Box alignItems="center" alignSelf="flex-end">
+                <Text>Next</Text>
+                <Arrow />
+              </Box>
+              <Link
+                style={{ fontWeight: 'bold', textAlign: 'right' }}
+                to={next.fields.slug}
+              >
+                {next.frontmatter.title}
+              </Link>
+            </GoToPost>
+          )}
+        </GoToPostContainer>
       </PostContainer>
       <Footer />
     </>

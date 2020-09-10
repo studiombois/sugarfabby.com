@@ -57,8 +57,10 @@ const StyledBox = styled.div`
     justifyContent && `justify-content: ${justifyContent};`}
   ${({ alignItems }) => alignItems && `align-items: ${alignItems};`}
   ${({
-    flex,
-  }) => flex && `flex: ${String(flex)};`}
+    alignSelf,
+  }) => alignSelf && `align-self: ${alignSelf};`}
+  ${({ flex }) =>
+    flex && `flex: ${String(flex)};`}
   ${({ flexDirection }) =>
     flexDirection && `flex-direction: ${flexDirection};`}
   ${getSpacing}
