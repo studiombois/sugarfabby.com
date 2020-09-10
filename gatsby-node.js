@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 const path = require('path');
 
-function createBlogPages({ data, actions }) {
+function createBlogPages({ data, actions, blogPath }) {
   if (!data.edges.length) {
     throw new Error('There are no posts!');
   }
@@ -13,7 +13,10 @@ function createBlogPages({ data, actions }) {
     // Gets the previous and next blog post
     const prev = i === 0 ? null : edges[i - 1].node;
     const next = i === edges.length - 1 ? null : edges[i + 1].node;
-    const pagePath = node.fields.slug;
+    // Sometimes fails to get the slug from fields
+    const pagePath =
+      (node.fields && node.fields.slug) ||
+      `${blogPath}/${node.frontmatter.slug}`;
 
     createPage({
       path: pagePath,
