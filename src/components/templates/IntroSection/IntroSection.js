@@ -26,19 +26,15 @@ const StyledContainer = styled(Container)`
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 20px 90px;
+    padding: 30px 60px 90px;
     max-width: 100%;
 
     @media screen and (min-width: ${breakpoints.sm}) {
       flex-direction: row;
-      max-width: ${breakpoints.sm};
-    }
-
-    @media screen and (min-width: ${breakpoints.md}) {
       max-width: ${breakpoints.md};
     }
 
-    @media screen and (min-width: ${breakpoints.lg}) {
+    @media screen and (min-width: ${breakpoints.md}) {
       max-width: ${breakpoints.lg};
     }
   }
@@ -52,8 +48,9 @@ const Buttons = styled(Box)`
 
 const Headline = styled.div`
   text-align: center;
-  max-width: 340px;
+  max-width: 360px;
   margin-bottom: 30px;
+  padding-right: 20px;
 
   @media screen and (min-width: ${breakpoints.sm}) {
     text-align: left;

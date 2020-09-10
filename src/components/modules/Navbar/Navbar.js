@@ -15,7 +15,7 @@ const StyledContainer = styled(Container)`
   width: 100%;
 
   > div {
-    max-width: 1440px;
+    max-width: 1200px;
     padding: 20px;
   }
 

@@ -39,8 +39,6 @@ const getLineHeight = (h) => {
 const StyledHeading = styled.h1`
   /* Default value */
   font-size: ${({ size }) => size && `${headingSizes[size]}rem`};
-  /* Override for other heading sizes */
-  font-size: ${({ size }) => size && `${headingSizes[size]}rem`};
   /* Override for any font size */
   font-size: ${({ custom }) => custom && `${custom}rem`};
   font-weight: ${({ size }) => getFontWeight(size)};
@@ -55,6 +53,10 @@ const StyledHeading = styled.h1`
     :hover {
       text-decoration: underline;
     }
+  }
+
+  @media screen and (max-width: ${theme.breakpoints.md}) {
+    font-size: ${({ size }) => size === 'h1' && `${headingSizes.h2}rem`};
   }
 `;
 
