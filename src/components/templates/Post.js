@@ -7,7 +7,7 @@ import Heading from '@components/elements/Text/Heading';
 import Text from '@components/elements/Text/Text';
 import Navbar from '@components/modules/Navbar/Navbar';
 import Footer from '@components/templates/Footer/Footer';
-import { graphql } from 'gatsby';
+import { graphql, Link as NavLink } from 'gatsby';
 import Img from 'gatsby-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import React from 'react';
@@ -19,10 +19,6 @@ const PostContainer = styled(Container)`
     max-width: 768px;
     text-align: left;
   }
-`;
-
-const StyledHeading = styled(Heading)`
-  margin-top: 10px;
 `;
 
 const Description = styled(Text)`
@@ -42,19 +38,35 @@ const Tag = styled(Text)`
   }
 `;
 
-const GoToPost = styled(Box)`
+const PostCard = styled(Box)`
   background: var(--color-background-dark);
   padding: 20px;
-  margin-right: 15px;
+  margin-bottom: 20px;
   flex-direction: column;
   border-radius: 10px;
 
-  :last-child {
-    margin: 0;
+  &#next {
+    margin-right: 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-right: 15px;
+
+    &#next {
+      margin-left: auto;
+    }
   }
 `;
 
-const GoToPostContainer = styled(Box)`
+const PostLink = styled(NavLink)`
+  color: var(--color-primary);
+
+  :hover {
+    text-decoration: underline;
+  }
+`;
+
+const PostCardContainer = styled(Box)`
   flex-direction: column;
 
   @media screen and (min-width: 768px) {
@@ -65,7 +77,7 @@ const GoToPostContainer = styled(Box)`
 const Post = ({ data: { mdx }, pageContext }) => {
   const { next, prev } = pageContext;
   const { body, frontmatter, fields } = mdx;
-  const { slug } = fields;
+  const { slug, editLink } = fields;
   const {
     title,
     description,
@@ -75,6 +87,8 @@ const Post = ({ data: { mdx }, pageContext }) => {
     date,
     category,
   } = frontmatter;
+
+  const blogPostUrl = `https://sugarfabby.com${slug}`;
 
   return (
     <>
@@ -87,10 +101,18 @@ const Post = ({ data: { mdx }, pageContext }) => {
       <PostContainer isTopSection>
         <Box flexDirection="column" mb="30px">
           <Tag size="small">
-            <span>{category}</span>
-            {` • ${date}`}
+            {category ? (
+              <>
+                <span>{category}</span>
+                {` • ${date}`}
+              </>
+            ) : (
+              <>{date}</>
+            )}
           </Tag>
-          <StyledHeading size="h2">{title}</StyledHeading>
+          <Heading size="h2" style={{ marginTop: '10px' }}>
+            {title}
+          </Heading>
           <Description size="large" fontWeight="200">
             {description}
           </Description>
@@ -113,33 +135,49 @@ const Post = ({ data: { mdx }, pageContext }) => {
           </Box>
         )}
         <MDXRenderer>{body}</MDXRenderer>
-        <GoToPostContainer justifyContent="space-between">
+
+        <Box alignItems="flex-end" flexDirection="column" mt="80px" mb="30px">
+          <Text fontWeight="bold">Thanks For Reading</Text>
+          <Box mt="5px">
+            <Link
+              href={`https://mobile.twitter.com/search?q=${encodeURIComponent(
+                blogPostUrl,
+              )}`}
+            >
+              Discuss on Twitter
+            </Link>
+            <span style={{ margin: '0 10px' }}>{` • `}</span>
+            <Link href={editLink}>Edit Post on GitHub</Link>
+          </Box>
+        </Box>
+
+        <PostCardContainer justifyContent="space-between">
           {prev && (
-            <GoToPost>
+            <PostCard id="prev">
               <Box alignItems="center">
                 <Arrow type="left" />
                 <Text>Previous</Text>
               </Box>
-              <Link style={{ fontWeight: 'bold' }} to={prev.fields.slug}>
+              <PostLink style={{ fontWeight: 'bold' }} to={prev.fields.slug}>
                 {prev.frontmatter.title}
-              </Link>
-            </GoToPost>
+              </PostLink>
+            </PostCard>
           )}
           {next && (
-            <GoToPost>
+            <PostCard id="next">
               <Box alignItems="center" alignSelf="flex-end">
                 <Text>Next</Text>
                 <Arrow />
               </Box>
-              <Link
+              <PostLink
                 style={{ fontWeight: 'bold', textAlign: 'right' }}
                 to={next.fields.slug}
               >
                 {next.frontmatter.title}
-              </Link>
-            </GoToPost>
+              </PostLink>
+            </PostCard>
           )}
-        </GoToPostContainer>
+        </PostCardContainer>
       </PostContainer>
       <Footer />
     </>
