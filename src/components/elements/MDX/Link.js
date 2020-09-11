@@ -1,3 +1,5 @@
+/* eslint-disable react/display-name */
+import React from 'react';
 import styled from 'styled-components';
 
 const Link = styled.a`
@@ -10,4 +12,8 @@ const Link = styled.a`
   }
 `;
 
-export default Link;
+export default ({ children, ...props }) => (
+  <Link target="_blank" rel="noopener noreferrer" {...props}>
+    {children}
+  </Link>
+);

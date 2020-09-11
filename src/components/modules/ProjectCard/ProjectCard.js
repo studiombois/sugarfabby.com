@@ -33,9 +33,7 @@ const ProjectCard = ({ project }) => {
     demoLink,
     sourceLink,
     techUsed,
-    description: {
-      childMarkdownRemark: { excerpt },
-    },
+    description: { excerpt },
     screenshot: { fluid },
   } = project;
 
@@ -69,7 +67,7 @@ const ProjectCard = ({ project }) => {
           <Button link={sourceLink} disabled={!sourceLink}>
             View Source
           </Button>
-          <Button link={demoLink} disabled={!demoLink} fill>
+          <Button link={demoLink} disabled={!demoLink} isFill>
             View Demo
           </Button>
         </ButtonsContainer>

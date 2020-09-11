@@ -17,17 +17,15 @@ const filledStyle = css`
 `;
 
 const disabledStyle = css`
-  color: var(--color-text-disabled);
-  border: 1px solid var(--color-disabled);
   pointer-events: none;
-  ${({ fill }) => fill && 'background: var(--color-disabled)'}
+  opacity: 0.3;
 `;
 
 const StyledButton = styled.button`
   min-width: 125px;
   border-radius: 20px;
   padding: 8px 20px;
-  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   font-family: inherit;
   line-height: 1.5;
   font-size: 16px;
@@ -48,21 +46,23 @@ const StyledButton = styled.button`
     background: var(--color-active);
   }
 
-  ${({ fill }) => fill && filledStyle}
+  ${({ isFill }) => isFill && filledStyle}
   ${({ disabled }) => disabled && disabledStyle}
 `;
 
-const Button = ({ children, onClick, fill, link, disabled, target }) => {
+const Button = ({ children, onClick, isFill, link, disabled, target }) => {
   if (link) {
     return (
       <a href={link} target={target} rel="nofollow noopener noreferrer">
-        <StyledButton {...{ onClick, fill, disabled }}>{children}</StyledButton>
+        <StyledButton {...{ onClick, isFill, disabled }}>
+          {children}
+        </StyledButton>
       </a>
     );
   }
 
   return (
-    <StyledButton {...{ onClick, fill, disabled }}>{children}</StyledButton>
+    <StyledButton {...{ onClick, isFill, disabled }}>{children}</StyledButton>
   );
 };
 

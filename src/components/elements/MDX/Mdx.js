@@ -2,9 +2,10 @@
 import Heading from '@components/elements/Text/Heading';
 import Paragraph from '@components/elements/Text/Paragraph';
 import React from 'react';
+import Blockquote from './Blockquote';
 import Code from './Code';
 import Link from './Link';
-import List from './List';
+import List, { OrderedList } from './List';
 import Pre from './Pre';
 
 export default {
@@ -17,6 +18,8 @@ export default {
   p: (props) => <Paragraph {...props} />,
   a: (props) => <Link {...props} />,
   ul: (props) => <List {...props} />,
+  ol: (props) => <OrderedList {...props} />,
   inlineCode: (props) => <Code {...props} />,
   pre: (props) => <Pre {...props} />,
+  blockquote: (props) => <Blockquote {...props} />,
 };

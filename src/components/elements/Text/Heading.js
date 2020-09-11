@@ -24,15 +24,26 @@ const getFontWeight = (h) => {
   }
 };
 
+const getLineHeight = (h) => {
+  switch (h) {
+    case 'h1':
+    case 'h2':
+    case 'h3':
+    case 'h4':
+      return 1.2;
+    default:
+      return '1.5em';
+  }
+};
+
 const StyledHeading = styled.h1`
   /* Default value */
-  font-size: ${({ size }) => size && `${headingSizes[size]}rem`};
-  /* Override for other heading sizes */
   font-size: ${({ size }) => size && `${headingSizes[size]}rem`};
   /* Override for any font size */
   font-size: ${({ custom }) => custom && `${custom}rem`};
   font-weight: ${({ size }) => getFontWeight(size)};
   margin: 2.75rem 0 1.05rem;
+  line-height: ${({ size }) => getLineHeight(size)};
   letter-spacing: -0.01rem;
   a {
     color: var(--color-primary);
@@ -42,6 +53,10 @@ const StyledHeading = styled.h1`
     :hover {
       text-decoration: underline;
     }
+  }
+
+  @media screen and (max-width: ${theme.breakpoints.md}) {
+    font-size: ${({ size }) => size === 'h1' && `${headingSizes.h2}rem`};
   }
 `;
 

@@ -1,13 +1,24 @@
 import Box from '@components/elements/Box/Box';
 import Button from '@components/elements/Button/Button';
 import Container from '@components/elements/Container/Container';
+import Loading from '@components/elements/Loading/Loading';
 import Heading from '@components/elements/Text/Heading';
 import Paragraph from '@components/elements/Text/Paragraph';
 import { useTheme } from '@components/templates/ThemeProvider';
-import { breakpoints } from '@lib/theme/GlobalStyles';
+import { breakpoints } from '@lib/theme/theme';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const avatarWrapper = css`
+  width: 335px;
+  height: 198px;
+
+  @media screen and (min-width: ${breakpoints.md}) {
+    width: 534px;
+    height: 315px;
+  }
+`;
 
 const StyledContainer = styled(Container)`
   > div {
@@ -20,15 +31,12 @@ const StyledContainer = styled(Container)`
 
     @media screen and (min-width: ${breakpoints.sm}) {
       flex-direction: row;
-      max-width: 768px;
+      padding: 30px 60px 90px;
+      max-width: ${breakpoints.md};
     }
 
     @media screen and (min-width: ${breakpoints.md}) {
-      max-width: 992px;
-    }
-
-    @media screen and (min-width: ${breakpoints.lg}) {
-      max-width: 1200px;
+      max-width: ${breakpoints.lg};
     }
   }
 `;
@@ -41,24 +49,19 @@ const Buttons = styled(Box)`
 
 const Headline = styled.div`
   text-align: center;
-  max-width: 340px;
+  max-width: 360px;
   margin-bottom: 30px;
 
   @media screen and (min-width: ${breakpoints.sm}) {
     text-align: left;
     margin-bottom: 0px;
+    padding-right: 20px;
   }
 `;
 
 const Avatar = styled.img`
-  width: 335px;
-  height: 198px;
   animation: fadeIn 0.5s ease-in-out;
-
-  @media screen and (min-width: ${breakpoints.md}) {
-    width: 534px;
-    height: 315px;
-  }
+  ${avatarWrapper}
 
   @keyframes fadeIn {
     from {
@@ -68,6 +71,10 @@ const Avatar = styled.img`
       opacity: 1;
     }
   }
+`;
+
+const Wrapper = styled(Box)`
+  ${avatarWrapper}
 `;
 
 const IntroSection = () => {
@@ -91,9 +98,9 @@ const IntroSection = () => {
   const { author, email, description } = data.site.siteMetadata;
   const { url: resumeUrl } = data.contentfulAsset.file;
   return (
-    <StyledContainer>
+    <StyledContainer isTopSection>
       <Headline>
-        <Heading size="h1" style={{ margin: 0 }}>
+        <Heading size="h1" style={{ margin: '0 0 10px' }}>
           {author}
         </Heading>
         <Paragraph style={{ fontSize: '18px' }}>{description}</Paragraph>
@@ -102,12 +109,18 @@ const IntroSection = () => {
             Email Me
           </Button>
           <Box mr="10px" />
-          <Button link={resumeUrl} fill>
+          <Button link={resumeUrl} isFill>
             View Resume
           </Button>
         </Buttons>
       </Headline>
-      {avatar ? <Avatar src={avatar} alt="fabian-avatar" /> : null}
+      {avatar ? (
+        <Avatar src={avatar} alt="fabian-avatar" />
+      ) : (
+        <Wrapper>
+          <Loading />
+        </Wrapper>
+      )}
     </StyledContainer>
   );
 };

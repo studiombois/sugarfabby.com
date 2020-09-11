@@ -1,7 +1,7 @@
 import Box from '@components/elements/Box/Box';
 import Container from '@components/elements/Container/Container';
 import Icon from '@components/elements/Icon/Icon';
-import { breakpoints } from '@lib/theme/GlobalStyles';
+import { breakpoints } from '@lib/theme/theme';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
@@ -82,12 +82,11 @@ const Footer = () => {
             link
             platform
           }
-          blogUrl
         }
       }
     }
   `);
-  const { socialMedia, blogUrl } = data.site.siteMetadata;
+  const { socialMedia } = data.site.siteMetadata;
   const year = new Date().getFullYear();
 
   const scrollToTop = () => {
@@ -119,7 +118,6 @@ const Footer = () => {
           ))}
         </SocialMediaButtonsBox>
         <Links>
-          <a href={blogUrl}>Blog</a>
           <Link to="/about">About</Link>
           <p id="scroll-to-top" onClick={scrollToTop}>
             Back To Top

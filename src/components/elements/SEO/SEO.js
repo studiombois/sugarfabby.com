@@ -5,18 +5,16 @@ import { Helmet } from 'react-helmet';
 const MyHelmet = ({
   siteMetadata: seo,
   contentfulAsset,
-  postData,
-  // metaImage,
+  metaImage,
   isBlogPost,
-  frontmatter: postMeta = (postData &&
-    postData.childMarkdownRemark.frontmatter) ||
-    {},
-  title = postMeta.title || seo.title,
-  description = postMeta.plainTextDescription ||
-    postMeta.description ||
-    seo.description,
-  image = contentfulAsset.file.url,
-  url = postMeta.slug ? `${seo.siteUrl}${postMeta.slug}` : seo.siteUrl,
+  frontmatter: postMeta,
+  title = (postMeta && postMeta.title) || seo.title,
+  description = (postMeta && postMeta.description) || seo.description,
+  image = (metaImage && `${seo.siteUrl}${metaImage}`) ||
+    contentfulAsset.file.url,
+  url = postMeta && postMeta.slug
+    ? `${seo.siteUrl}${postMeta.slug}`
+    : seo.siteUrl,
   // datePublished = isBlogPost ? postMeta.datePublished : false,
 }) => {
   return (
@@ -36,7 +34,10 @@ const MyHelmet = ({
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content={'@fabiannnlee'} />
+      <meta
+        name="twitter:creator"
+        content={seo.socialMedia.find((s) => s.platform === 'twitter').id}
+      />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
@@ -56,7 +57,10 @@ const SEO = (props) => {
           author
           description
           siteUrl
-          blogUrl
+          socialMedia {
+            id
+            platform
+          }
         }
       }
       contentfulAsset(title: { eq: "fabian-portfolio-open-graph" }) {

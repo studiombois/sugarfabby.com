@@ -1,9 +1,7 @@
-import Navbar from '@components/modules/Navbar/Navbar';
-import Footer from '@components/templates/Footer/Footer';
+import Video from '@components/elements/Video/Video';
 import ThemeProvider from '@components/templates/ThemeProvider';
 import GlobalStyles from '@lib/theme/GlobalStyles';
 import { MDXProvider } from '@mdx-js/react';
-import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import mdxComponents from '../MDX/Mdx';
@@ -15,25 +13,16 @@ const Main = styled.main`
   min-height: 100vh;
 `;
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          blogUrl
-        }
-      }
-    }
-  `);
-  const { blogUrl } = data.site.siteMetadata;
+const customComponents = { Video };
 
+const Layout = ({ children }) => {
   return (
     <ThemeProvider>
       <Main>
         <GlobalStyles />
-        <Navbar {...{ blogUrl }} />
-        <MDXProvider components={mdxComponents}>{children}</MDXProvider>
-        <Footer />
+        <MDXProvider components={{ ...mdxComponents, ...customComponents }}>
+          {children}
+        </MDXProvider>
       </Main>
     </ThemeProvider>
   );

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const StyledSection = styled.section`
   background: var(--color-background);
+  ${({ isTopSection }) => isTopSection && `padding-top: 100px`}
 `;
 
 const Wrapper = styled.div`
