@@ -1,3 +1,5 @@
+import avatarDark from '@assets/images/avatar-dark.svg';
+import avatar from '@assets/images/avatar.svg';
 import Box from '@components/elements/Box/Box';
 import Button from '@components/elements/Button/Button';
 import Container from '@components/elements/Container/Container';
@@ -94,7 +96,7 @@ const IntroSection = () => {
       }
     }
   `);
-  const { avatar } = useTheme();
+  const { mode } = useTheme();
   const { author, email, description } = data.site.siteMetadata;
   const { url: resumeUrl } = data.contentfulAsset.file;
   return (
@@ -114,8 +116,11 @@ const IntroSection = () => {
           </Button>
         </Buttons>
       </Headline>
-      {avatar ? (
-        <Avatar src={avatar} alt="fabian-avatar" />
+      {mode ? (
+        <Avatar
+          src={mode === 'light' ? avatar : avatarDark}
+          alt="fabian-avatar"
+        />
       ) : (
         <Wrapper>
           <Loading />
