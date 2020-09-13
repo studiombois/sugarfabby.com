@@ -37,6 +37,7 @@ const PostCard = styled(Box)`
   margin-bottom: 20px;
   flex-direction: column;
   border-radius: 10px;
+  flex: 1;
 
   &#next {
     margin-right: 0;
@@ -44,6 +45,7 @@ const PostCard = styled(Box)`
 
   @media screen and (min-width: 768px) {
     margin-right: 15px;
+    max-width: 357px;
 
     &#next {
       margin-left: auto;

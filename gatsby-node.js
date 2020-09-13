@@ -1,18 +1,13 @@
 /* eslint-disable no-undef */
 const path = require('path');
 
-function createBlogPages({ data, actions, blogPath }) {
-  if (!data.edges.length) {
-    throw new Error('There are no posts!');
-  }
-
-  const { edges } = data;
+function createBlogPages({ posts, actions, blogPath }) {
   const { createPage } = actions;
 
-  edges.forEach(({ node }, i) => {
+  posts.forEach(({ node }, index) => {
     // Gets the previous and next blog post
-    const prev = i === 0 ? null : edges[i - 1].node;
-    const next = i === edges.length - 1 ? null : edges[i + 1].node;
+    const prev = index === posts.length - 1 ? null : posts[index + 1].node;
+    const next = index === 0 ? null : posts[index - 1].node;
     // Sometimes fails to get the slug from fields
     const pagePath =
       (node.fields && node.fields.slug) ||
@@ -30,39 +25,49 @@ function createBlogPages({ data, actions, blogPath }) {
   });
 }
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = ({ graphql, actions }) => {
   // Need to move MDX pages outside of pages folder to prevent creating duplicates
-  const { data, errors } = await graphql(`
-    query {
-      blog: allMdx(
-        filter: {
-          fileAbsolutePath: { regex: "//content/blog//" }
-          frontmatter: { published: { eq: true } }
-        }
-        sort: { order: DESC, fields: [frontmatter___date] }
-      ) {
-        edges {
-          node {
-            id
-            fields {
-              slug
+  return new Promise((resolve, reject) => {
+    resolve(
+      graphql(`
+        query {
+          blog: allMdx(
+            filter: {
+              fileAbsolutePath: { regex: "//content/blog//" }
+              frontmatter: { published: { eq: true } }
             }
-            frontmatter {
-              title
+            sort: { order: DESC, fields: [frontmatter___date] }
+          ) {
+            edges {
+              node {
+                id
+                fields {
+                  slug
+                }
+                frontmatter {
+                  title
+                }
+              }
             }
           }
         }
-      }
-    }
-  `);
+      `).then(({ data, errors }) => {
+        if (errors) {
+          reject(errors);
+          return;
+        }
 
-  if (errors) {
-    return errors;
-  }
+        const { edges } = data.blog;
 
-  const { blog } = data;
+        if (!edges.length) {
+          reject('There are no posts');
+          return;
+        }
 
-  createBlogPages({ blogPath: '/blog', data: blog, actions });
+        createBlogPages({ posts: edges, blogPath: '/blog', actions });
+      }),
+    );
+  });
 };
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
