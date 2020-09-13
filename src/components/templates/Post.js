@@ -76,6 +76,19 @@ const Category = styled(Text)`
   margin-right: 10px;
 `;
 
+const ImageContainer = styled(Box)`
+  > div {
+    border-radius: 0;
+    margin: 0 -20px;
+  }
+
+  @media screen and (min-width: 769px) {
+    > div {
+      border-radius: 10px;
+    }
+  }
+`;
+
 const Post = ({ data: { mdx }, pageContext }) => {
   const { next, prev } = pageContext;
   const { body, frontmatter, fields, timeToRead } = mdx;
@@ -117,36 +130,30 @@ const Post = ({ data: { mdx }, pageContext }) => {
           </Description>
         </Box>
         {banner && (
-          <Box flexDirection="column" mb="30px">
-            <Img
-              fluid={banner.childImageSharp.fluid}
-              alt="post-banner"
-              style={{
-                borderRadius: 10,
-                marginLeft: '-15px',
-                marginRight: '-15px',
-              }}
-            />
+          <ImageContainer flexDirection="column" mb="30px">
+            <Img fluid={banner.childImageSharp.fluid} alt="post-banner" />
             <Credit size="small">
               Photo By&nbsp;
               <Link href={bannerLink}>{bannerCredit}</Link>
             </Credit>
-          </Box>
+          </ImageContainer>
         )}
         <MDXRenderer>{body}</MDXRenderer>
 
         <Box alignItems="flex-end" flexDirection="column" mt="80px" mb="30px">
           <Text fontWeight="bold">Thanks For Reading</Text>
-          <Box mt="5px">
-            <Link
-              href={`https://mobile.twitter.com/search?q=${encodeURIComponent(
-                blogPostUrl,
-              )}`}
-            >
-              Discuss on Twitter
-            </Link>
-            <span style={{ margin: '0 10px' }}>{` • `}</span>
-            <Link href={editLink}>Edit Post on GitHub</Link>
+          <Box>
+            <Text style={{ margin: 0, textAlign: 'right' }}>
+              <Link
+                href={`https://mobile.twitter.com/search?q=${encodeURIComponent(
+                  blogPostUrl,
+                )}`}
+              >
+                Discuss on Twitter
+              </Link>
+              <span style={{ margin: '0 10px' }}>{` • `}</span>
+              <Link href={editLink}>Edit Post on GitHub</Link>
+            </Text>
           </Box>
         </Box>
 
