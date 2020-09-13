@@ -99,12 +99,13 @@ const GlobalStyles = createGlobalStyle`
 
   /* Adjust code highlight line numbers position, depending on the containers' padding */
   .gatsby-highlight .line-numbers-rows {
-    padding: 25px 0 25px 1em;
+    padding: 20px 0 20px 1em;
     border-right: none;
 
     span::before {
       color: white;
       opacity: 0.2;
+      font-size: 16px;
     }
   }
 `;

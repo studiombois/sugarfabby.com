@@ -8,5 +8,5 @@ jobs:
     steps:
       - uses: seferov/pr-lint-action@master
         with:
-          title-regex: '^(feat|refactor|enhance|fix|chore)(\(.*\))?: .*$'
+          title-regex: '^(feat|refactor|enhance|fix|chore|blog)(\(.*\))?: .*$'
           title-regex-flags: 'g'

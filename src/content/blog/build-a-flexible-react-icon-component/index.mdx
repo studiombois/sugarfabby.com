@@ -1,0 +1,179 @@
+---
+slug: build-a-flexible-react-icon-component
+title: 'Build a Flexible React Icon Component'
+date: '2020-08-16'
+author: Fabian Lee
+description: A simple abstraction that makes your Icon component easy to use.
+banner: './images/banner.jpg'
+bannerCredit: Harpal Singh
+bannerLink: https://unsplash.com/photos/_zKxPsGOGKg
+published: true
+category: Coding
+---
+
+Icons are essential for every project. And there are multiple ways to import them. For quite some time, we’ve been importing them through CSS using links adding either to the HTML header or CSS import function. In the light of developer experience, we have npm packages that come with tonnes of icons that we can install and use effortlessly.
+
+Today, I will show you how to build a flexible React icon component make use of these packages along with styled-components.
+
+### Let's Start!
+
+In your React project, you can choose to install react-icons or meronex-icons. I will be using the latter which is a fork of react-icons that enables tree-shaking. Great thing about these packages is they provide SVG icons.
+
+Run `yarn add @meronex/icons` and create a new `Icon` component in your project.
+
+```jsx
+import React from 'react';
+
+const Icon = () => {};
+
+export default Icon;
+```
+
+The 2 packages would teach you to import icons directly when you need, for example:
+
+```jsx
+import { FaBeer } from '@meronex/icons/fa';
+
+const Beer = () => <h3><FaBeer /> for life.</h3>;
+```
+
+I don’t find it practical since we usually want to centralize how components behave and display. And while using styled-components, you don’t want to import your theme everywhere when you want to style your icons. Nevertheless having a chunk of import statements.
+
+### What We Can Do
+
+```jsx
+import * as MaterialDesignIcons from '@meronex/icons/md';
+import * as FontAwesomeIcons from '@meronex/icons/fa';
+import React from 'react';
+import { styled } from 'styled-components';
+
+const iconFamilies = {
+  MaterialDesign: MaterialDesignIcons,
+  FontAwesome: FontAwesomeIcons
+}
+
+const StyledIcon = styled(({ family, name, ...rest }) => (
+  React.createElement(iconFamilies[family][name], rest)
+))``
+
+const Icon = ({ family, name, size, color }) => (
+  <StyledIcon {...{ family, name, size, color }} />
+)
+
+export default Icon;
+```
+
+There are 2 less common features we used here.
+
+#### 1. Factory function in styled-components
+
+It allows us to pass in a function that returns a component. It’s usually for altering the props before passing to the component.
+
+```jsx
+const StyledCmp = styled(props => {
+  // Do something with props
+  return <Cmp {...whateverYouDidWithProps} />
+})``
+```
+
+And for the record,
+
+```jsx
+const StyledCmp = styled(props => <Cmp {...props} />)``
+
+// is the same as
+
+const StyledCmp = styled(Cmp)``
+```
+
+#### 2. React.createElement 
+
+This is particularly useful when we want to dynamically create components.
+
+The `iconFamilies` is a mapper object that each key refers to icons of a family. We can choose whatever icons we want by passing props `family` and `name` . And React will help us create that icon on the fly.
+
+```jsx
+<Icon family="MaterialDesign" name="MdAlarm" />
+
+React.createElement(iconFamilies['MaterialDesign']['MdAlarm'])
+
+// are the same as
+
+<MaterialDesignIcons.MdAlarm />
+```
+
+Assuming you have a theme and you want to set the color and size, the final version can be something like this.
+
+```jsx
+// Version with Styled Components
+import * as MaterialDesignIcons from '@meronex/icons/md';
+import * as FontAwesomeIcons from '@meronex/icons/fa';
+import React from 'react';
+import { styled } from 'styled-components';
+
+const iconFamilies = {
+  MaterialDesign: MaterialDesignIcons,
+  FontAwesome: FontAwesomeIcons
+}
+
+const StyledIcon = styled(({ family, name, ...rest }) => (
+  React.createElement(iconFamilies[family][name], rest)
+))`
+  width: ${({ theme, size }) => theme.sizing[size]};
+  height: ${({ theme, size }) => theme.sizing[size]};
+  fill: ${({ theme, color }) => theme.colors[color]};
+`
+
+const Icon = ({ family, name, size, color }) => (
+  <StyledIcon {...{ family, name, size, color }} />
+)
+
+export default Icon;
+```
+
+And if you don’t like styled-components, you can simply do this with style object as usual.
+
+```jsx
+// Version with style object
+import * as MaterialDesignIcons from '@meronex/icons/md';
+import * as FontAwesomeIcons from '@meronex/icons/fa';
+import React from 'react';
+
+const iconFamilies = {
+  MaterialDesign: MaterialDesignIcons,
+  FontAwesome: FontAwesomeIcons
+}
+
+const Icon = ({ family, name, ...rest}) => (
+  React.createElement(iconFamilies[family][name]), rest)
+)
+
+export default Icon;
+```
+
+### Caveats
+
+This solution requires us to import icons all at once. If you really care about the slightly increased bundle size, I would suggest planning out all the icons you will use. Then create a mapper which includes the family as well as the name. This also means you would need to maintain the list of icons.
+
+```jsx
+import { MdAlarm, MdDelete, ... } from '@meronex/icons/md';
+import React from 'react';
+
+const iconFamilies = {
+  MaterialDesign: {
+   MdAlarm,
+   MdDelete,
+   // More icons
+  }
+}
+
+const Icon = ({ family, name, ...rest}) => (
+  React.createElement(iconFamilies[family][name]), rest)
+)
+
+export default Icon;
+```
+
+#### All Done!
+
+Hope you’ll find this useful in your project. Let me know if find anything unusual with this implementation. I would love to learn from you guys as well.

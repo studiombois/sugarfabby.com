@@ -7,10 +7,10 @@ import { PostItem, ProjectItem } from './SummaryItems';
 
 const StyledContainer = styled(Container)`
   background: var(--color-background);
-  margin-top: 20px;
   > div {
     text-align: left;
     max-width: 1120px;
+    padding: 70px 20px;
   }
 `;
 
