@@ -40,10 +40,6 @@ const Links = styled(Box)`
     padding: 8px 10px;
     font-size: 16px;
     border-radius: 5px;
-
-    &:hover {
-      color: var(--color-hover);
-    }
   }
 
   #scroll-to-top {
@@ -118,6 +114,7 @@ const Footer = () => {
           ))}
         </SocialMediaButtonsBox>
         <Links>
+          <Link to="/projects">Projects</Link>
           <Link to="/about">About</Link>
           <p id="scroll-to-top" onClick={scrollToTop}>
             Back To Top

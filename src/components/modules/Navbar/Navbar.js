@@ -1,6 +1,6 @@
 import Container from '@components/elements/Container/Container';
 import NewSwitch from '@components/elements/Switch/NewSwitch';
-import { useTheme } from '@components/templates/ThemeProvider';
+import { useTheme } from '@lib/theme/ThemeProvider';
 import debounce from '@lib/utils/debounce';
 import { Link } from 'gatsby';
 import React from 'react';
@@ -97,9 +97,9 @@ const Navbar = () => {
             <Logo src={logoSrc} alt="icon-logo" />
           </Link>
           <NavItems>
-            {/* <NavItem>
-            <Link to="/projects">Projects</Link>
-          </NavItem> */}
+            <NavItem>
+              <Link to="/projects">Projects</Link>
+            </NavItem>
             {/* <NavItem>
               <Link to="/blog">Blog</Link>
             </NavItem> */}

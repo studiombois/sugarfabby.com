@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import avatarDark from './assets/images/avatar-dark.svg';
-import avatar from './assets/images/avatar.svg';
 
 export default function HTML(props) {
   return (
@@ -30,7 +28,6 @@ export default function HTML(props) {
               (function() {
                 function setTheme(newTheme) {
                   window.__theme = newTheme;
-                  window.__avatar = newTheme === 'light' ? '${avatar}' : '${avatarDark}';
                   preferredTheme = newTheme;
                   document.documentElement.setAttribute('data-theme', newTheme);
                 }

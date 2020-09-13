@@ -1,5 +1,4 @@
 import Container from '@components/elements/Container/Container';
-import Heading from '@components/elements/Text/Heading';
 import ProjectCard from '@components/modules/ProjectCard/ProjectCard';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
@@ -7,6 +6,9 @@ import styled from 'styled-components';
 
 const StyledContainer = styled(Container)`
   background: var(--color-background-dark);
+  > div {
+    padding: 70px 20px;
+  }
 `;
 
 const ProjectsGrid = styled.div`
@@ -19,7 +21,7 @@ const ProjectsGrid = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 1128px) {
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 20px;
   }
@@ -51,9 +53,6 @@ const ProjectsSection = ({ ...props }) => {
 
   return (
     <StyledContainer {...props}>
-      <Heading size="h2" style={{ marginTop: 0, marginBottom: '30px' }}>
-        Projects
-      </Heading>
       <ProjectsGrid>
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />

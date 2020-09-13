@@ -6,8 +6,8 @@ import Container from '@components/elements/Container/Container';
 import Loading from '@components/elements/Loading/Loading';
 import Heading from '@components/elements/Text/Heading';
 import Paragraph from '@components/elements/Text/Paragraph';
-import { useTheme } from '@components/templates/ThemeProvider';
 import { breakpoints } from '@lib/theme/theme';
+import { useTheme } from '@lib/theme/ThemeProvider';
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled, { css } from 'styled-components';
@@ -29,16 +29,16 @@ const StyledContainer = styled(Container)`
     align-items: center;
     justify-content: space-between;
     padding: 30px 20px 90px;
-    max-width: 100%;
+    border-bottom: 1px solid var(--color-border);
 
     @media screen and (min-width: ${breakpoints.sm}) {
       flex-direction: row;
-      padding: 30px 60px 90px;
+      padding: 30px 20px 90px;
       max-width: ${breakpoints.md};
     }
 
     @media screen and (min-width: ${breakpoints.md}) {
-      max-width: ${breakpoints.lg};
+      max-width: 1120px;
     }
   }
 `;
@@ -108,7 +108,7 @@ const IntroSection = () => {
         <Paragraph style={{ fontSize: '18px' }}>{description}</Paragraph>
         <Buttons justifyContent="center">
           <Button link={`mailto:${email}`} target="_self">
-            Email Me
+            Say Hello
           </Button>
           <Box mr="10px" />
           <Button link={resumeUrl} isFill>

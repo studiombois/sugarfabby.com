@@ -31,13 +31,6 @@ const Credit = styled(Text)`
   color: gray;
 `;
 
-const Tag = styled(Text)`
-  span {
-    font-size: inherit;
-    color: var(--color-primary);
-  }
-`;
-
 const PostCard = styled(Box)`
   background: var(--color-background-dark);
   padding: 20px;
@@ -74,9 +67,18 @@ const PostCardContainer = styled(Box)`
   }
 `;
 
+const Category = styled(Text)`
+  color: var(--color-primary);
+  padding: 0 10px;
+  width: fit-content;
+  background: rgba(79, 172, 254, 0.2);
+  border-radius: 10px;
+  margin-right: 10px;
+`;
+
 const Post = ({ data: { mdx }, pageContext }) => {
   const { next, prev } = pageContext;
-  const { body, frontmatter, fields } = mdx;
+  const { body, frontmatter, fields, timeToRead } = mdx;
   const { slug, editLink } = fields;
   const {
     title,
@@ -100,16 +102,13 @@ const Post = ({ data: { mdx }, pageContext }) => {
       <Navbar />
       <PostContainer isTopSection>
         <Box flexDirection="column" mb="30px">
-          <Tag size="small">
-            {category ? (
-              <>
-                <span>{category}</span>
-                {` • ${date}`}
-              </>
-            ) : (
-              <>{date}</>
-            )}
-          </Tag>
+          <Box>
+            {category && <Category size="small">{category}</Category>}
+            <Text
+              size="small"
+              style={{ color: 'var(--color-text-secondary)' }}
+            >{`${date} • ${timeToRead} minute read`}</Text>
+          </Box>
           <Heading size="h2" style={{ marginTop: '10px' }}>
             {title}
           </Heading>
@@ -189,6 +188,7 @@ export const pageQuery = graphql`
   query($id: String!) {
     mdx(id: { eq: $id }) {
       body
+      timeToRead
       fields {
         slug
         editLink

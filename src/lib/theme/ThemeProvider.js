@@ -12,9 +12,9 @@ export const useTheme = () => {
 };
 
 const ThemeProvider = (props) => {
-  const [mode, avatar, toggleTheme] = useDarkMode();
+  const [mode, toggleTheme] = useDarkMode();
   return (
-    <StyledThemeProvider theme={{ ...theme, mode, avatar, toggleTheme }}>
+    <StyledThemeProvider theme={{ ...theme, mode, toggleTheme }}>
       {props.children}
     </StyledThemeProvider>
   );

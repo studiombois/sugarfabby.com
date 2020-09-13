@@ -28,11 +28,11 @@ const GlobalStyles = createGlobalStyle`
     --color-background-code: var(--color-darkMode-dark);
     --color-text: var(--color-darkMode);
     --color-text-footer: var(--color-white);
-    --color-text-secondary: var(--color-grey-dark);
+    --color-text-secondary: var(--color-grey-darker);
     --color-text-disabled: var(--color-white);
     --color-hover: var(--color-primary-light);
     --color-active: var(--color-primary-dark);
-    --color-disabled: var(--color-grey);
+    --color-border: var(--color-grey);
     --color-switch: #f0ba2a;
 
     --box-shadow: rgba(0, 0, 0, 0.016) 0px 0.8px 2.2px -2px, rgba(0, 0, 0, 0.02) 0px 1.9px 5.3px -2px, rgba(0, 0, 0, 0.024) 0px 3.6px 10px -2px, rgba(0, 0, 0, 0.03) 0px 6.5px 17.9px -2px;
@@ -50,7 +50,7 @@ const GlobalStyles = createGlobalStyle`
     --color-text-disabled: var(--color-darkMode-light);
     --color-hover: var(--color-primary-light);
     --color-active: var(--color-primary-dark);
-    --color-disabled: var(--color-darkMode-dark);
+    --color-border: rgba(255, 255, 255, 0.05);
     --color-navbar-background: rgba(14, 24, 42, 0.9) none repeat scroll 0% 0%;
 
     --box-shadow: rgba(0, 0, 0, 0.082) 0px 0.8px 2.2px -2px, rgba(0, 0, 0, 0.12) 0px 1.9px 5.3px -2px, rgba(0, 0, 0, 0.15) 0px 3.6px 10px -2px, rgba(0, 0, 0, 0.18) 0px 6.5px 17.9px -2px;

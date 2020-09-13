@@ -4,9 +4,6 @@
     <img alt="Gatsby" src="https://images.ctfassets.net/msnp0d5q63m6/3jrVJHiJ2rldK577wna1VZ/5650298509f25aa39e36224e4f56be72/fabian-logo-circle.png?h=250" />
   </a>
 </p>
-<h1 align="center">
-  My Personal Website
-</h1>
 
 ## Why SugarFabby?
 It's easy for you to remember (I hope...)
