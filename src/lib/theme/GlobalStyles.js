@@ -70,7 +70,6 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Inter', -apple-system, BlinkMacSystemFont,
       'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
     color: var(--color-text);
-    scroll-behavior: smooth;
     background: var(--color-background);
   }
 
