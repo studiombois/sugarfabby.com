@@ -10,6 +10,7 @@ import Footer from '@components/templates/Footer/Footer';
 import { graphql, Link as NavLink } from 'gatsby';
 import Img from 'gatsby-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
+import 'prism-theme-night-owl';
 import React from 'react';
 import styled from 'styled-components';
 
