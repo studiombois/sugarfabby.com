@@ -1,4 +1,5 @@
 import Video from '@components/elements/Video/Video';
+import Navbar from '@components/modules/Navbar/Navbar';
 import GlobalStyles from '@lib/theme/GlobalStyles';
 import ThemeProvider from '@lib/theme/ThemeProvider';
 import { MDXProvider } from '@mdx-js/react';
@@ -20,6 +21,7 @@ const Layout = ({ children }) => {
     <ThemeProvider>
       <Main>
         <GlobalStyles />
+        <Navbar />
         <MDXProvider components={{ ...mdxComponents, ...customComponents }}>
           {children}
         </MDXProvider>

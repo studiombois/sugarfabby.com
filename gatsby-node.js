@@ -102,30 +102,3 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     });
   }
 };
-
-// // This little algo takes the array of posts and groups
-// // them based on this `size`:
-// let size = 5;
-// let start = 0;
-// // Premake the grouped array to the correct length. new Array
-// // wasn't working with map so don't @ me :)
-// let groupedPosts = Array.from(Array(Math.ceil(posts.length / size)));
-// groupedPosts = groupedPosts.map(() => {
-//   const group = posts.slice(start, start + size);
-//   start += size;
-//   return group;
-// });
-
-// // Here's the basic idea of what the grouping is doing if the
-// // size variable was 2:
-// // posts: [post1, post2, post3]
-// // groupedPosts: [[post1, post2], [post3]]
-
-// groupedPosts.forEach((group, index) => {
-//   const page = index + 1;
-//   createPage({
-//     path: `/blog/${page}`,
-//     component: path.resolve('./src/components/browse-blog-posts.js'),
-//     context: { groupedPosts, group, page },
-//   });
-// });

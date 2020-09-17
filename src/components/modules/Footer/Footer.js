@@ -95,6 +95,12 @@ const Footer = () => {
     }
   };
 
+  const LINKS = [
+    { path: '/projects', label: 'Projects' },
+    { path: '/blog', label: 'Blog' },
+    { path: '/about', label: 'About' },
+  ];
+
   return (
     <StyledContainer>
       <StyledBox
@@ -114,8 +120,11 @@ const Footer = () => {
           ))}
         </SocialMediaButtonsBox>
         <Links>
-          <Link to="/projects">Projects</Link>
-          <Link to="/about">About</Link>
+          {LINKS.map((l) => (
+            <Link key={l.path} to={l.path}>
+              {l.label}
+            </Link>
+          ))}
           <p id="scroll-to-top" onClick={scrollToTop}>
             Back To Top
           </p>

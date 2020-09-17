@@ -1,0 +1,67 @@
+---
+slug: journey-of-beginner-javascript-part-1
+title: 'Journey of Beginner JavaScript: Part 1'
+date: '2020-04-10'
+author: Fabian Lee
+description: My journey in taking the "Beginner JavaScript" course by Wes Bos.
+banner: './images/banner.jpg'
+bannerCredit: Max Duzij
+bannerLink: https://unsplash.com/photos/qAjJk-un3BI
+published: true
+category: Coding
+---
+
+### Foreword
+
+I have been building software professionally for over one and half year now. Thanks to the new tech trends that utilizes JavaScript, web developers like myself can go from front-end to back-end development, and even mobile to desktop app development. It's save to say that JavaScript is a must-learn language in the next decade.
+
+The interesting part about coding in general is that you don't have to be an expert in a language to build something out. You have access to tonnes of libraries and solutions online that have solved almost all of the complicated problems for you. You only need to focus on piecing the available puzzles together. This is how I feel in this stage of my career. I don't have to know how React is implemented in order to use it to build a web app. I don't have do complicated array manipulations with vanilla loops and statements when helper methods like `map`, `reduce`, `filter` are available.
+
+You can indeed be a "good" developer by just learning all the frameworks that's trending in market. If you want to differentiate yourself to become a "great" developer and prolong your career, I think it's better to have a solid understanding of the basics, so you can adapt quicker than the rest of the community since technology is always evolving. A framework or library is more likely to die out than the language itself, just look at jQuery. This is why I decided to revise my JavaScript knowledge and see what concepts I've missed!
+
+### What I've Learnt
+
+Here are the missing concepts that I've learnt in **Beginner JavaScript - The Basics**.
+
+#### 1. Declare variables without using `var` `let` `const`
+
+If you have something like this:
+
+```js
+name = 'Fabian'
+```
+
+JavaScript will know that you missed the variable declaration keyword and will automatically add it back. This is built-in since the day JS is born.
+
+When you add `use strict` at the top of your script file,
+
+```js
+'use strict'
+name = 'Fabian' // Throws error
+```
+
+JavaScript will now catch and throw and error when it finds any undeclared variables. In the modern JS world, `use strict` is included in ES6 classes and modules. Even if it's not, I guess no one would realize this kind of declaration exists.
+
+#### 2. ESLint and Prettier Playground
+
+I would visit ESLint documentation once in awhile but I never knew there's a playground for you to preview the rules. It would be useful if you want to build a custom eslint config.
+
+Check out [Prettier Playground](https://prettier.io/playground) and [ESLint Playground](https://eslint.org/demo).
+
+#### 3. Data Types Mnemonic - SNOBUSN (Snow busing)
+
+Mnemonic is a learning technique that helps us retain information in memory easier. It's always good to see a teacher that gives you interesting way of remember important concepts.
+
+**S**tring  
+**N**umber  
+**O**bject  
+**B**oolean  
+**U**ndefined  
+**S**ymbol  
+**N**ull
+
+And we should remember everything except Objects are call **Primitive Types**. Functions, Arrays and Dates are essentially Objects in JS.
+
+#### To Be Continued
+
+Part 1 of the course is super easy in general. I'm glad that I still learn something new at end. The next thing would be about Functions. Check out the [course](https://beginnerjavascript.com/) if you are interested.

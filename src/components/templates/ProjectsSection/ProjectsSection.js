@@ -8,6 +8,7 @@ const StyledContainer = styled(Container)`
   background: var(--color-background-dark);
   > div {
     padding: 70px 20px;
+    max-width: 1120px;
   }
 `;
 

@@ -10,16 +10,6 @@ const Container = styled.div`
   align-items: center;
   height: 100vh;
   padding: 0 20px;
-  background-image: linear-gradient(
-      213deg,
-      var(--color-background) 0%,
-      var(--color-background-dark) 100%
-    ),
-    linear-gradient(
-      32deg,
-      rgba(255, 255, 255, 0.25) 33%,
-      rgba(153, 153, 153, 0.25) 100%
-    );
   > * {
     text-align: center;
   }

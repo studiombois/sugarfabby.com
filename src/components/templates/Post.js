@@ -5,8 +5,8 @@ import Link from '@components/elements/MDX/Link';
 import SEO from '@components/elements/SEO/SEO';
 import Heading from '@components/elements/Text/Heading';
 import Text from '@components/elements/Text/Text';
+import Footer from '@components/modules/Footer/Footer';
 import Navbar from '@components/modules/Navbar/Navbar';
-import Footer from '@components/templates/Footer/Footer';
 import { graphql, Link as NavLink } from 'gatsby';
 import Img from 'gatsby-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
@@ -145,7 +145,7 @@ const Post = ({ data: { mdx }, pageContext }) => {
 
         <Box alignItems="flex-end" flexDirection="column" mt="80px" mb="30px">
           <Text fontWeight="bold">Thanks For Reading</Text>
-          <Box>
+          <Box mt="5px">
             <Text style={{ margin: 0, textAlign: 'right' }}>
               <Link
                 href={`https://mobile.twitter.com/search?q=${encodeURIComponent(

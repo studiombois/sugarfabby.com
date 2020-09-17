@@ -65,6 +65,7 @@ const SummarySection = () => {
       ) {
         totalCount
         nodes {
+          id
           title
           demoLink
           sourceLink
@@ -94,6 +95,7 @@ const SummarySection = () => {
             />
           );
         })}
+        <ViewAll to="/blog">View All</ViewAll>
         <Divider />
         <Header>Latest Projects</Header>
         {projects.map((p) => {

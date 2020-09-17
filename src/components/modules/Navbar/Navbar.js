@@ -39,6 +39,12 @@ const NavItems = styled.ul`
   > :last-child {
     margin-left: 20px;
   }
+
+  @media screen and (max-width: 376px) {
+    > :last-child {
+      margin-left: 10px;
+    }
+  }
 `;
 
 const NavItem = styled.li`
@@ -74,20 +80,20 @@ const Navbar = () => {
   const { mode, toggleTheme } = useTheme();
   const [inProp, setInProp] = React.useState(false);
 
-  const handleScroll = () => {
-    if (window.scrollY > 0) {
-      setInProp(true);
-    } else if (window.scrollY === 0) {
-      setInProp(false);
-    }
-  };
-
   React.useLayoutEffect(() => {
     if (typeof window !== undefined) {
       window.addEventListener('scroll', debounce(handleScroll));
     }
     return () => window.removeEventListener('scroll', handleScroll);
   }, [inProp]);
+
+  const handleScroll = React.useCallback(() => {
+    if (window.scrollY > 0) {
+      setInProp(true);
+    } else if (window.scrollY === 0) {
+      setInProp(false);
+    }
+  }, []);
 
   return (
     <CSSTransition in={inProp} timeout={200} classNames="alert" appear>
@@ -100,9 +106,9 @@ const Navbar = () => {
             <NavItem>
               <Link to="/projects">Projects</Link>
             </NavItem>
-            {/* <NavItem>
+            <NavItem>
               <Link to="/blog">Blog</Link>
-            </NavItem> */}
+            </NavItem>
             <NavItem>
               <Link to="/about">About</Link>
             </NavItem>

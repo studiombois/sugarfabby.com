@@ -29,9 +29,10 @@ export const PostItem = ({
   description,
   date,
   timeToRead,
+  ...props
 }) => {
   return (
-    <Box mb="40px">
+    <Box mb="40px" {...props}>
       <Box flexDirection="column">
         {category && (
           <Category size="small" fontWeight="500">

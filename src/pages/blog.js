@@ -3,7 +3,7 @@ import SEO from '@components/elements/SEO/SEO';
 import Heading from '@components/elements/Text/Heading';
 import Text from '@components/elements/Text/Text';
 import Footer from '@components/modules/Footer/Footer';
-import ProjectsSection from '@components/templates/ProjectsSection/ProjectsSection';
+import BlogSection from '@components/templates/BlogSection/BlogSection';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -11,30 +11,27 @@ const StyledContainer = styled(Container)`
   > div {
     padding: 70px 20px 40px;
     text-align: left;
-    max-width: 1120px;
+    max-width: 992px;
   }
 `;
 
-const ProjectsPage = () => {
+const BlogPage = () => {
   return (
     <>
       <SEO />
       <StyledContainer>
         <Heading
           size="h2"
-          style={{
-            marginBottom: '10px',
-            color: 'var(--color-primary)',
-          }}
+          style={{ marginBottom: '10px', color: 'var(--color-primary)' }}
         >
-          Projects
+          Blog
         </Heading>
-        <Text>Collection of web development side projects.</Text>
+        <Text>I mostly write about coding, productivity and life.</Text>
       </StyledContainer>
-      <ProjectsSection id="projects" />
+      <BlogSection />
       <Footer />
     </>
   );
 };
 
-export default ProjectsPage;
+export default BlogPage;
